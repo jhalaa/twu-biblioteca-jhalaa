@@ -1,0 +1,34 @@
+
+<project name="MainClass" default="runTest" basedir=".">
+
+    <property name="project.name" value="biblioteca_twu"/>
+    <property name="package.name" value="com.thoughtworks.biblioteca"/>
+
+    <target name="init">
+        <mkdir dir="build"/>
+    </target>
+
+    <target name="compile" depends="init">
+        <javac destdir="build">
+            <src path="src:test"/>
+            <classpath location = "lib/junit-4.12.jar"/>
+        </javac>
+    </target>
+
+    <target name="runTest" depends="compile">
+        <junit printsummary="true" haltonfailure="true" outputtoformatters="true">
+            <classpath>
+                <pathelement location="lib/junit-4.12.jar"/>
+                <pathelement location="lib/hamcrest-core-1.3.jar"/>
+                <pathelement location="build"/>
+            </classpath>
+
+            <formatter type="brief" usefile="false"/>
+        </junit>
+    </target>
+
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+</project>
