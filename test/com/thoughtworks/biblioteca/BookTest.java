@@ -19,11 +19,19 @@ public class BookTest {
     }
     @Test
     public void shouldReturnValidBook() {
-        Book book = new Book("Harry Potter");
+        Book book = new Book();
+        book.addBook("Harry Potter");
         book.printMessage();
         assertEquals("Harry Potter\n", outContent.toString());
     }
-    
+    @Test
+    public void shouldReturnValidBooks() {
+        Book book = new Book();
+        book.addBook("Harry Potter");
+        book.addBook("Da Vinci Code");
+        book.printMessage();
+        assertEquals("Harry Potter\nDa Vinci Code\n", outContent.toString());
+    }
     @After
     public void cleanUpStreams() {
         System.setOut(System.out);
