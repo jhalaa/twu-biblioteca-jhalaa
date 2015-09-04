@@ -10,7 +10,7 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 
-public class WelcomeTest {
+public class BookTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     @Before
@@ -18,11 +18,12 @@ public class WelcomeTest {
         System.setOut(new PrintStream(outContent));
     }
     @Test
-    public void shouldRetunValidMessageOnWelcome() {
-        Welcome welcome = new Welcome("Hello Book lover!Welcome to biblioteca");
-        welcome.printMessage();
-        assertEquals("Hello Book lover!Welcome to biblioteca\n", outContent.toString());
+    public void shouldReturnValidBook() {
+        Book book = new Book("Harry Potter");
+        book.printMessage();
+        assertEquals("Harry Potter\n", outContent.toString());
     }
+    
     @After
     public void cleanUpStreams() {
         System.setOut(System.out);
