@@ -5,17 +5,15 @@ import java.util.ArrayList;
 //displays a list of books
 public class Book {
 
-    private ArrayList<String> books = new ArrayList<String>();
-    private int count = 0;
+    private ArrayList<BookDetails> books = new ArrayList<BookDetails>();
 
     public void printMessage() {
-        for(int i=0;i<count;i++) {
-            System.out.println(books.get(i));
+        for(BookDetails book:books) {
+            System.out.println(book);
         }
     }
 
-    public void addBook(String book) {
-        books.add(count, book);
-        count ++;
+    public void addBook(BookDetails book) {
+        books.add(book);
     }
 }
