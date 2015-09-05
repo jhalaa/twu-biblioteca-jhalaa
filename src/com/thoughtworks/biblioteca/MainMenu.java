@@ -1,7 +1,15 @@
 package com.thoughtworks.biblioteca;
 
 public class MainMenu {
+
+    String option;
+    public MainMenu(String option) {
+        this.option = option;
+    }
+
     public String displayMenu() {
-        return "List of Books";
+        if(option.equals("1"))
+            return "List of Books";
+        return "Select a valid option!";
     }
 }
