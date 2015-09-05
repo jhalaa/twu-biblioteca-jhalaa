@@ -10,7 +10,7 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 
-public class BookTest {
+public class BookListTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     @Before
@@ -19,17 +19,17 @@ public class BookTest {
     }
     @Test
     public void shouldReturnValidBook() {
-        Book book = new Book();
-        book.addBook(new BookDetails("Harry Potter","JK Rowling",1993));
-        book.printMessage();
+        BookList bookList = new BookList();
+        bookList.addBook(new BookDetails("Harry Potter","JK Rowling",1993));
+        bookList.printMessage();
         assertEquals("Harry Potter JK Rowling 1993\n", outContent.toString());
     }
     @Test
     public void shouldReturnValidBooks() {
-        Book book = new Book();
-        book.addBook(new BookDetails("Harry Potter","JK Rowling",1993));
-        book.addBook(new BookDetails("Da Vinci Code","Dan Brown",2007));
-        book.printMessage();
+        BookList bookList = new BookList();
+        bookList.addBook(new BookDetails("Harry Potter","JK Rowling",1993));
+        bookList.addBook(new BookDetails("Da Vinci Code","Dan Brown",2007));
+        bookList.printMessage();
         assertEquals("Harry Potter JK Rowling 1993\nDa Vinci Code Dan Brown 2007\n", outContent.toString());
     }
     @After

@@ -3,7 +3,7 @@ package com.thoughtworks.biblioteca;
 import java.util.ArrayList;
 
 //displays a list of books
-public class Book {
+public class BookList {
 
     private ArrayList<BookDetails> books = new ArrayList<BookDetails>();
 
