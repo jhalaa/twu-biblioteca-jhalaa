@@ -1,5 +1,6 @@
 package com.thoughtworks.biblioteca;
 
+//returns the details of a book
 public class Book {
 
     private String bookName;

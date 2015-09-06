@@ -7,13 +7,13 @@ public class BookList {
 
     private ArrayList<Book> books = new ArrayList<Book>();
 
+    public BookList(ArrayList<Book> books) {
+        this.books = books;
+    }
+
     public void printMessage() {
         for (Book book : books) {
             System.out.println(book);
         }
-    }
-
-    public void addBook(Book book) {
-        books.add(book);
     }
 }
