@@ -1,16 +1,11 @@
 package com.thoughtworks.biblioteca;
 
-//returns the menu option selected
+//returns the menu
 public class Menu {
 
-    String option;
-    public Menu(String option) {
-        this.option = option;
-    }
+    static String menuList = "1:List of books\t2:Exit";
 
-    public boolean returnsMenuOptionSelected() {
-        if(option.equals("1"))
-            return true;
-        return false;
+    public String displayMenuOption() {
+        return(menuList);
     }
 }
