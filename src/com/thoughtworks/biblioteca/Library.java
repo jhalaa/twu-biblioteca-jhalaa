@@ -34,7 +34,8 @@ public class Library implements Operation {
         return hash;
     }
 
-    public void checkOutContent(Book book) {
+    public void checkOutContent(String name) {
+        Book book = new Book(name,null,0);
         books.remove(book);
     }
 }

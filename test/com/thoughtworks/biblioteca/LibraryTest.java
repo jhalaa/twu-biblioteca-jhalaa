@@ -26,7 +26,7 @@ public class LibraryTest {
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         Library library = new Library(books);
         library.displayContents();
-        assertEquals("Harry Potter JK Rowling 1993\n", outContent.toString());
+        assertEquals(String.format("%24s %24s %24d\n","Harry Potter","JK Rowling",1993), outContent.toString());
     }
 
     @Test
@@ -36,7 +36,7 @@ public class LibraryTest {
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
         library.displayContents();
-        assertEquals("Harry Potter JK Rowling 1993\nDa Vinci Code Dan Brown 2007\n", outContent.toString());
+        assertEquals(String.format("%24s %24s %24d\n%24s %24s %24d\n","Harry Potter","JK Rowling",1993,"Da Vinci Code","Dan Brown", 2007),outContent.toString());
     }
 
     @After

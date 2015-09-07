@@ -21,7 +21,8 @@ public class BibliotecaMain {
                 exit.displayContents();
             }
             else if(inputOption.equals("3")) {
-                library.checkOutContent(new Book("Harry Potter","JK Rowling", 1993));
+                String bookname = s.nextLine();
+                library.checkOutContent(bookname);
                 library.displayContents();
             }
             else

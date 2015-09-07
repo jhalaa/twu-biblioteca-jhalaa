@@ -10,7 +10,7 @@ public class BookTest {
     @Test
     public void shouldReturnTheValidBookDetails() {
         Book book = new Book("Harry Potter", "JK Rowling", 1993);
-        assertEquals(book.toString(), "Harry Potter JK Rowling 1993");
+        assertEquals(book.toString(), String.format("%24s %24s %24d","Harry Potter","JK Rowling",1993));
     }
 
     @Test
