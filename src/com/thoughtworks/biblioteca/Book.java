@@ -1,6 +1,6 @@
 package com.thoughtworks.biblioteca;
 
-//returns the details of a book
+
 public class Book {
 
     private String bookName;
@@ -16,5 +16,13 @@ public class Book {
     @Override
     public String toString() {
         return bookName + " " + author + " " + year;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        Book book = (Book)object;
+        if(this.bookName.equals(book.bookName))
+            return true;
+        return false;
     }
 }

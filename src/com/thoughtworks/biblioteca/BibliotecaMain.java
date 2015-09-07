@@ -5,22 +5,15 @@ import java.util.Scanner;
 
 import static java.lang.System.exit;
 
-//sets up biblioteca
+//delegation of biblioteca operations
 public class BibliotecaMain {
 
     public static void main(String[] args) {
-
-        Welcome welcome = new Welcome("Hello BookList lover!Welcome to biblioteca");
-        welcome.printMessage();
-        System.out.println("1:List of books\t2:Quit");
-
-        ArrayList<Book> books =new ArrayList<Book>();
-        books.add(new Book("Harry Potter", "JK Rowling", 1993));
-        books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
-        BookList bookList = new BookList(books);
-        Scanner s = new Scanner(System.in);
+        Configuration configuration = new Configuration();
+        BookList bookList = configuration.start();
         Menu menu = new Menu();
-        menu.displayMenuOption();
+        System.out.println(menu.displayMenuOption());
+        Scanner s = new Scanner(System.in);
         while(true) {
             String inputOption;
             inputOption = s.nextLine();

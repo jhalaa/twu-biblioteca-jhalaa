@@ -11,4 +11,9 @@ public class BookTest {
         Book book = new Book("Harry Potter", "JK Rowling", 1993);
         assertEquals(book.toString(), "Harry Potter JK Rowling 1993");
     }
+    @Test
+    public void shouldReturnEqualIfTheBookNameISEqual() {
+        Book book = new Book("Harry Potter", "JK Rowling", 1993);
+        assertEquals(book , new Book("Harry Potter", "JK Rowling", 1993));
+    }
 }
