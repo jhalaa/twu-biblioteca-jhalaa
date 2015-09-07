@@ -21,7 +21,7 @@ public class Book {
     @Override
     public boolean equals(Object object) {
         Book book = (Book)object;
-        if(this.bookName.equals(book.bookName))
+        if(this.bookName.equals(book.bookName) && this.author.equals(book.author))
             return true;
         return false;
     }
