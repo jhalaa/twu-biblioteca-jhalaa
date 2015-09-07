@@ -20,6 +20,10 @@ public class BibliotecaMain {
                 Exit exit = new Exit();
                 exit.displayContents();
             }
+            else if(inputOption.equals("3")) {
+                library.checkOutContent(new Book("Harry Potter","JK Rowling", 1993));
+                library.displayContents();
+            }
             else
                 System.out.println("Invalid menu option");
         }

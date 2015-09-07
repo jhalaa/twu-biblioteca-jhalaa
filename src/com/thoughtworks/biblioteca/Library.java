@@ -33,4 +33,8 @@ public class Library implements Operation {
         hash = 7 * hash + books.get(0).hashCode();
         return hash;
     }
+
+    public void checkOutContent(Book book) {
+        books.remove(book);
+    }
 }
