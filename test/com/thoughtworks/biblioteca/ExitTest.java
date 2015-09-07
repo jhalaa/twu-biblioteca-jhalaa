@@ -10,11 +10,6 @@ public class ExitTest {
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
 
     @Test
-    public void noSystemExit() {
-        //passes
-    }
-
-    @Test
     public void systemExitWithArbitraryStatusCode() {
         exit.expectSystemExit();
         System.exit(0);

@@ -2,7 +2,7 @@ package com.thoughtworks.biblioteca;
 
 import java.util.ArrayList;
 
-//displays a list of books
+//handles a list of books
 public class Library implements Operation {
 
     private ArrayList<Book> books = new ArrayList<Book>();
