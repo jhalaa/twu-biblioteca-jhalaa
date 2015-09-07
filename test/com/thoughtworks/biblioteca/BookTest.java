@@ -32,9 +32,16 @@ public class BookTest {
     }
 
     @Test
-    public void shouldReturnEqualIfTwoBooksHaveSameHashCode() {
+    public void shouldReturnEqualHasCodeIfTwoBooksAreSame() {
         Book book1 = new Book("Harry Potter", "JK Rowling", 1994);
         Book book2 = new Book("Harry Potter", "JK Rowling", 1994);
+        assertEquals(book1.hashCode(), book2.hashCode());
+    }
+
+    @Test
+    public void shouldReturnDifferentHashCodeIfTwoBooksAreDifferent() {
+        Book book1 = new Book("Harry Potter", "JK Rowling", 1994);
+        Book book2 = new Book("Harry Potter", "JK Rowling1", 1994);
         assertNotEquals(book1.hashCode(), book2.hashCode());
     }
 }

@@ -28,7 +28,10 @@ public class Book {
 
     @Override
     public int hashCode() {
-        return 0;
+        int hash = 3;
+        hash = 7 * hash + this.bookName.hashCode();
+        hash = 7 * hash + this.author.hashCode();
+        return hash+year;
     }
 
 }
