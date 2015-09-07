@@ -3,15 +3,15 @@ package com.thoughtworks.biblioteca;
 import java.util.ArrayList;
 
 //displays a list of books
-public class BookList {
+public class Library implements Operation {
 
     private ArrayList<Book> books = new ArrayList<Book>();
 
-    public BookList(ArrayList<Book> books) {
+    public Library(ArrayList<Book> books) {
         this.books = books;
     }
 
-    public void printMessage() {
+    public void displayContents() {
         for (Book book : books) {
             System.out.println(book);
         }
@@ -19,7 +19,7 @@ public class BookList {
 
     @Override
     public boolean equals(Object object) {
-        BookList that = (BookList) object;
+        Library that = (Library) object;
         for (int i = 0; i < books.size(); i++) {
             if (!(this.books.get(i).equals(that.books.get(i))))
                 return false;

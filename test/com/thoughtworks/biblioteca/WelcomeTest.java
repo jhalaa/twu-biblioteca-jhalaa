@@ -19,9 +19,9 @@ public class WelcomeTest {
 
     @Test
     public void shouldRetunValidMessageOnWelcome() {
-        Welcome welcome = new Welcome("Hello BookList lover!Welcome to biblioteca");
+        Welcome welcome = new Welcome("Hello Library lover!Welcome to biblioteca");
         welcome.printMessage();
-        assertEquals("Hello BookList lover!Welcome to biblioteca\n", outContent.toString());
+        assertEquals("Hello Library lover!Welcome to biblioteca\n", outContent.toString());
     }
 
     @After

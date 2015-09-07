@@ -8,12 +8,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
-import static junit.framework.Assert.assertTrue;
-import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-public class BookListTest {
+public class LibraryTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
@@ -26,18 +24,18 @@ public class BookListTest {
     public void shouldReturnValidBook() {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
-        BookList bookList = new BookList(books);
-        bookList.printMessage();
+        Library library = new Library(books);
+        library.displayContents();
         assertEquals("Harry Potter JK Rowling 1993\n", outContent.toString());
     }
 
     @Test
     public void shouldReturnValidBooks() {
         ArrayList<Book> books = new ArrayList<Book>();
-        BookList bookList = new BookList(books);
+        Library library = new Library(books);
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
-        bookList.printMessage();
+        library.displayContents();
         assertEquals("Harry Potter JK Rowling 1993\nDa Vinci Code Dan Brown 2007\n", outContent.toString());
     }
 
@@ -49,13 +47,13 @@ public class BookListTest {
     @Test
     public void shouldReturnEqualIfTheBookListsAreEqual() {
         ArrayList<Book> books = new ArrayList<Book>();
-        BookList bookList1 = new BookList(books);
+        Library library1 = new Library(books);
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
-        BookList bookList2 = new BookList(books);
+        Library library2 = new Library(books);
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
-        assertEquals(bookList1, bookList2);
+        assertEquals(library1, library2);
     }
 
     @Test
@@ -63,12 +61,12 @@ public class BookListTest {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Harry Potter", "JK Rowling", 1995));
         books.add(new Book("Da Vinci Code", "Dan Brown2", 2007));
-        BookList bookList1 = new BookList(books);
+        Library library1 = new Library(books);
         ArrayList<Book> books1 = new ArrayList<Book>();
         books1.add(new Book("Harry Potter", "JK Rowling", 1993));
         books1.add(new Book("Da Vinci", "Dan Brown", 2007));
-        BookList bookList2 = new BookList(books1);
-        assertNotEquals(bookList1, bookList2);
+        Library library2 = new Library(books1);
+        assertNotEquals(library1, library2);
     }
 
     @Test
@@ -76,12 +74,12 @@ public class BookListTest {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Harry Potter", "JK Rowling", 1995));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
-        BookList bookList1 = new BookList(books);
+        Library library1 = new Library(books);
         ArrayList<Book> books1 = new ArrayList<Book>();
         books1.add(new Book("Harry Potter", "JK Rowling", 1995));
         books1.add(new Book("Da Vinci Code", "Dan Brown", 2007));
-        BookList bookList2 = new BookList(books1);
-        assertEquals(bookList1, bookList2);
+        Library library2 = new Library(books1);
+        assertEquals(library1, library2);
     }
 
     @Test
@@ -89,12 +87,12 @@ public class BookListTest {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Harry Potter", "JK Rowling1", 1995));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
-        BookList bookList1 = new BookList(books);
+        Library library1 = new Library(books);
         ArrayList<Book> books1 = new ArrayList<Book>();
         books1.add(new Book("Harry Potter", "JK Rowling", 1995));
         books1.add(new Book("Da Vinci Code", "Dan Brown", 2007));
-        BookList bookList2 = new BookList(books1);
-        assertNotEquals(bookList1, bookList2);
+        Library library2 = new Library(books1);
+        assertNotEquals(library1, library2);
     }
 
 }

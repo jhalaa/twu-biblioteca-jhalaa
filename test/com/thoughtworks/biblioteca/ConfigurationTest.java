@@ -15,7 +15,7 @@ public class ConfigurationTest {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
-        BookList bookList = new BookList(books);
-        assertEquals(configuration.start(), bookList);
+        Library library = new Library(books);
+        assertEquals(configuration.start(), library);
     }
 }
