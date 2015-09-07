@@ -18,7 +18,13 @@ public class BookList {
     }
 
     @Override
-    public boolean equals(Object o) {
-        return true;
+    public boolean equals(Object object) {
+        BookList that = (BookList) object;
+        for (int i = 0; i < books.size(); i++) {
+            if (!(this.books.get(i).equals(that.books.get(i)))) {
+                return false;
+            }
+        }
+            return true;
     }
 }

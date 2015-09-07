@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 public class ConfigurationTest {
@@ -17,6 +18,4 @@ public class ConfigurationTest {
         BookList bookList = new BookList(books);
         assertEquals(configuration.start(), bookList);
     }
-
-
 }

@@ -8,7 +8,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
+import static junit.framework.Assert.assertTrue;
+import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class BookListTest {
 
@@ -53,5 +56,18 @@ public class BookListTest {
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
         assertEquals(bookList1, bookList2);
+    }
+
+    @Test
+    public void shouldReturnNotEqualIfTheBookListsAreUnequal() {
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("Harry Potter", "JK Rowling", 1995));
+        books.add(new Book("Da Vinci Code", "Dan Brown2", 2007));
+        BookList bookList1 = new BookList(books);
+        ArrayList<Book> books1 = new ArrayList<Book>();
+        books1.add(new Book("Harry Potter", "JK Rowling", 1993));
+        books1.add(new Book("Da Vinci", "Dan Brown", 2007));
+        BookList bookList2 = new BookList(books1);
+        assertNotEquals(bookList1,bookList2);
     }
 }
