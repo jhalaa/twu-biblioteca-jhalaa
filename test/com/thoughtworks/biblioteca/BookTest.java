@@ -22,4 +22,10 @@ public class BookTest {
         Book book = new Book("Harry Potter", "JK Rowling", 1993);
         assertNotEquals(book, new Book("Harry Potter", "JK Rowling1", 1993));
     }
+
+    @Test
+    public void shouldReturnEqualIfTheBookNameAndAuthorAndYearIsEqual() {
+        Book book = new Book("Harry Potter", "JK Rowling", 1994);
+        assertNotEquals(book, new Book("Harry Potter", "JK Rowling", 1993));
+    }
 }
