@@ -12,11 +12,13 @@ public class BookTest {
         Book book = new Book("Harry Potter", "JK Rowling", 1993);
         assertEquals(book.toString(), "Harry Potter JK Rowling 1993");
     }
+
     @Test
     public void shouldReturnEqualIfTheBookNameISEqual() {
         Book book = new Book("Harry Potter", "JK Rowling", 1993);
-        assertEquals(book , new Book("Harry Potter", "JK Rowling", 1993));
+        assertEquals(book, new Book("Harry Potter", "JK Rowling", 1993));
     }
+
     @Test
     public void shouldReturnEqualIfTheBookNameAndAuthorISEqual() {
         Book book = new Book("Harry Potter", "JK Rowling", 1993);
@@ -27,5 +29,12 @@ public class BookTest {
     public void shouldReturnEqualIfTheBookNameAndAuthorAndYearIsEqual() {
         Book book = new Book("Harry Potter", "JK Rowling", 1994);
         assertNotEquals(book, new Book("Harry Potter", "JK Rowling", 1993));
+    }
+
+    @Test
+    public void shouldReturnEqualIfTwoBooksHaveSameHashCode() {
+        Book book1 = new Book("Harry Potter", "JK Rowling", 1994);
+        Book book2 = new Book("Harry Potter", "JK Rowling", 1994);
+        assertNotEquals(book1.hashCode(), book2.hashCode());
     }
 }
