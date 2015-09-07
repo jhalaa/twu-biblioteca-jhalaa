@@ -21,8 +21,7 @@ public class BookListTest {
 
     @Test
     public void shouldReturnValidBook() {
-        ArrayList<Book> books =new ArrayList<Book>();
-        books.add(new Book("Harry Potter", "JK Rowling", 1993));
+        ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         BookList bookList = new BookList(books);
         bookList.printMessage();
@@ -31,7 +30,7 @@ public class BookListTest {
 
     @Test
     public void shouldReturnValidBooks() {
-        ArrayList<Book> books =new ArrayList<Book>();
+        ArrayList<Book> books = new ArrayList<Book>();
         BookList bookList = new BookList(books);
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
@@ -42,5 +41,17 @@ public class BookListTest {
     @After
     public void cleanUpStreams() {
         System.setOut(System.out);
+    }
+
+    @Test
+    public void shouldReturnEqualIfTheBookListsAreEqual() {
+        ArrayList<Book> books = new ArrayList<Book>();
+        BookList bookList1 = new BookList(books);
+        books.add(new Book("Harry Potter", "JK Rowling", 1993));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
+        BookList bookList2 = new BookList(books);
+        books.add(new Book("Harry Potter", "JK Rowling", 1993));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
+        assertEquals(bookList1, bookList2);
     }
 }
