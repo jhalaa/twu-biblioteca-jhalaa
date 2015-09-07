@@ -1,6 +1,5 @@
 package com.thoughtworks.biblioteca;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import static java.lang.System.exit;

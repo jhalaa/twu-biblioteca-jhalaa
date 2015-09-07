@@ -68,6 +68,20 @@ public class BookListTest {
         books1.add(new Book("Harry Potter", "JK Rowling", 1993));
         books1.add(new Book("Da Vinci", "Dan Brown", 2007));
         BookList bookList2 = new BookList(books1);
-        assertNotEquals(bookList1,bookList2);
+        assertNotEquals(bookList1, bookList2);
     }
+
+    @Test
+    public void shouldReturnEqualHasCodeIfTwoBookListsAreSame() {
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("Harry Potter", "JK Rowling", 1995));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
+        BookList bookList1 = new BookList(books);
+        ArrayList<Book> books1 = new ArrayList<Book>();
+        books1.add(new Book("Harry Potter", "JK Rowling", 1995));
+        books1.add(new Book("Da Vinci Code", "Dan Brown", 2007));
+        BookList bookList2 = new BookList(books1);
+        assertEquals(bookList1, bookList2);
+    }
+
 }

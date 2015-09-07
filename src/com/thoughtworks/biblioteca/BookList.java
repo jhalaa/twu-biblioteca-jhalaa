@@ -21,10 +21,16 @@ public class BookList {
     public boolean equals(Object object) {
         BookList that = (BookList) object;
         for (int i = 0; i < books.size(); i++) {
-            if (!(this.books.get(i).equals(that.books.get(i)))) {
+            if (!(this.books.get(i).equals(that.books.get(i))))
                 return false;
-            }
         }
             return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 7 * hash + books.get(0).hashCode();
+        return hash;
     }
 }
