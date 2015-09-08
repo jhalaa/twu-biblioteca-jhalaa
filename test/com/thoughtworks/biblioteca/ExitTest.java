@@ -11,13 +11,8 @@ public class ExitTest {
 
     @Test
     public void systemExitWithArbitraryStatusCode() {
+        Exit exit1 = new Exit();
         exit.expectSystemExit();
-        System.exit(0);
-    }
-
-    @Test
-    public void systemExitWithSelectedStatusCode0() {
-        exit.expectSystemExitWithStatus(0);
-        System.exit(0);
+        exit1.displayContents();
     }
 }
