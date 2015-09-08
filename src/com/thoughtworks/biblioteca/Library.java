@@ -36,6 +36,7 @@ public class Library implements Operation {
 
     public void checkOutContent(String name) {
         Book book = new Book(name,null,0);
+
         books.remove(book);
     }
 }
