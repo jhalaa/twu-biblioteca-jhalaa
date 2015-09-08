@@ -11,6 +11,6 @@ public class MenuTest {
     @Test
     public void shouldDisplayTheListOfBooksIfOptionIsOne() {
         Menu menu = new Menu();
-        assertEquals(menu.displayMenuOption(),"1:List of books\t2:Exit\t3:Checkout");
+        assertEquals(menu.displayMenuOption(),"1:List of books\t2:Exit\t3:Checkout\t4:Return");
     }
 }
