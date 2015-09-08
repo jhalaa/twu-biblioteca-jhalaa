@@ -70,7 +70,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldReturnEqualHasCodeIfTwoBookListsAreSame() {
+    public void shouldReturnEqualHashCodeIfTwoBookListsAreSame() {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Harry Potter", "JK Rowling", 1995));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
@@ -79,7 +79,7 @@ public class LibraryTest {
         books1.add(new Book("Harry Potter", "JK Rowling", 1995));
         books1.add(new Book("Da Vinci Code", "Dan Brown", 2007));
         Library library2 = new Library(books1);
-        assertEquals(library1, library2);
+        assertEquals(library1.hashCode(), library2.hashCode());
     }
 
     @Test
@@ -92,7 +92,7 @@ public class LibraryTest {
         books1.add(new Book("Harry Potter1", "JK Rowling", 1995));
         books1.add(new Book("Da Vinci Code", "Dan Brown", 2007));
         Library library2 = new Library(books1);
-        assertNotEquals(library1, library2);
+        assertNotEquals(library1.hashCode(), library2.hashCode());
     }
 
     @Test
@@ -102,7 +102,7 @@ public class LibraryTest {
         books.add(new Book("Harry Potter", "JK Rowling", 1995));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
         Library library1 = new Library(books);
-        library1.checkOutBook("Harry Potter");
+        library1.checkOutContent("Harry Potter");
         ArrayList<Book> books1 = new ArrayList<Book>();
         books1.add(new Book("Da Vinci Code", "Dan Brown", 2007));
         Library library2 = new Library(books1);

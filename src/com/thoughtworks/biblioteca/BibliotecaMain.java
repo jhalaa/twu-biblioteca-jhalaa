@@ -22,7 +22,7 @@ public class BibliotecaMain {
             }
             else if(inputOption.equals("3")) {
                 String bookname = s.nextLine();
-                library.checkOutBook(bookname);
+                library.checkOutContent(bookname);
             }
             else if(inputOption.equals("4")) {
                 String bookname = s.nextLine();

@@ -2,7 +2,7 @@ package com.thoughtworks.biblioteca;
 
 import java.util.ArrayList;
 
-//handles a list of Books
+//handles a list of availableBooks
 public class Library implements Operation {
 
     private ArrayList<Book> availableBooks = new ArrayList<Book>();
@@ -36,11 +36,12 @@ public class Library implements Operation {
         return hash;
     }
 
-    public void checkOutBook(String name) {
+    public void checkOutContent(String name) {
         Checkout checkout;
         Book book = new Book(name,UNKNOWN_AUTHOR,UNKNOWN_YEAR);
         if(availableBooks.contains(book)) {
-            checkedOutBooks.add(book);
+            int index = availableBooks.indexOf(book);
+            checkedOutBooks.add(availableBooks.get(index));
             availableBooks.remove(book);
             checkout = new Checkout(true);
             checkout.printMessage();
