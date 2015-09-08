@@ -3,6 +3,7 @@ package com.thoughtworks.biblioteca;
 import java.util.ArrayList;
 
 //sets up biblioteca
+
 public class Configuration {
     Welcome welcome;
     ArrayList<Book> books;

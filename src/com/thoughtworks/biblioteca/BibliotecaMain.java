@@ -25,8 +25,10 @@ public class BibliotecaMain {
                 library.checkOutContent(bookname);
                 library.displayContents();
             }
-            else
-                System.out.println("Invalid menu option");
+            else {
+                InvalidMenuOption invalidMenuOption = new InvalidMenuOption();
+                invalidMenuOption.displayContents();
+            }
         }
     }
 }
