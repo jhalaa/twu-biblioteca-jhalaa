@@ -36,7 +36,7 @@ public class LibraryTest {
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
         library.displayContents();
-        assertEquals(String.format("%-34s %-34s %-34d\n%-34s %-34s %-34d\n","Harry Potter","JK Rowling",1993,"Da Vinci Code","Dan Brown", 2007),outContent.toString());
+        assertEquals(String.format("%-34s %-34s %-34d\n%-34s %-34s %-34d\n", "Harry Potter", "JK Rowling", 1993, "Da Vinci Code", "Dan Brown", 2007), outContent.toString());
     }
 
     @After
@@ -96,18 +96,15 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldRemoveAValidBook()
+    public void shouldReturnAValidBookAfterCheckout()
     {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Harry Potter", "JK Rowling", 1995));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
         Library library1 = new Library(books);
-        library1.checkOutContent("Harry Potter");
-        ArrayList<Book> books1 = new ArrayList<Book>();
-        books1.add(new Book("Da Vinci Code", "Dan Brown", 2007));
-        Library library2 = new Library(books1);
+        Library library2 = new Library(books);
+        library1.checkOutBook("Harry Potter");
         assertEquals(library1,library2);
 
     }
-
 }

@@ -36,7 +36,7 @@ public class Library implements Operation {
         return hash;
     }
 
-    public void checkOutContent(String name) {
+    public void checkOutBook(String name) {
         Checkout checkout;
         Book book = new Book(name,UNKNOWN_AUTHOR,UNKNOWN_YEAR);
         if(availableBooks.contains(book)) {
@@ -53,7 +53,11 @@ public class Library implements Operation {
     }
 
     public void returnBook(String bookname) {
-
-
+        if(checkedOutBooks.contains(bookname)) {
+            Book book = new Book(bookname, UNKNOWN_AUTHOR, UNKNOWN_YEAR);
+            int index = checkedOutBooks.indexOf(book);
+            availableBooks.add(checkedOutBooks.get(index));
+            checkedOutBooks.remove(book);
+        }
     }
 }
