@@ -20,10 +20,17 @@ public class CheckoutTest {
     }
 
     @Test
-    public void shouldRetunValidMessageOnSuccessfull() {
-        Checkout checkout = new Checkout();
+    public void shouldRetunValidMessageOnSuccessfulCheckout() {
+        Checkout checkout = new Checkout(true);
         checkout.printMessage();
         assertEquals("Thank you! Enjoy the book\n", outContent.toString());
+    }
+
+    @Test
+    public void shouldRetunValidMessageOnUnsuccessfulCheckout() {
+        Checkout checkout = new Checkout(false);
+        checkout.printMessage();
+        assertEquals("That book is not available\n", outContent.toString());
     }
 
     @After
