@@ -102,7 +102,7 @@ public class LibraryTest {
         books.add(new Book("Harry Potter", "JK Rowling", 1995));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
         Library library1 = new Library(books);
-        library1.checkOutContent("Harry Potter");
+        library1.checkOutBook("Harry Potter");
         ArrayList<Book> books1 = new ArrayList<Book>();
         books1.add(new Book("Da Vinci Code", "Dan Brown", 2007));
         Library library2 = new Library(books1);

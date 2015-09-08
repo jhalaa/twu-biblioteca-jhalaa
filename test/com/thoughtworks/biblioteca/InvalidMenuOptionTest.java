@@ -20,13 +20,14 @@ public class InvalidMenuOptionTest {
 
     @Test
     public void shouldRetunValidMessageOnInvalidCommand() {
-        Welcome welcome = new Welcome("Hello Library lover!Welcome to biblioteca");
-        welcome.printMessage();
-        assertEquals("Hello Library lover!Welcome to biblioteca\n", outContent.toString());
+        InvalidMenuOption invalidMenuOption = new InvalidMenuOption();
+        invalidMenuOption.displayContents();
+        assertEquals("Invalid menu option\n", outContent.toString());
     }
 
     @After
     public void cleanUpStreams() {
         System.setOut(System.out);
+        System.out.println(" ");
     }
 }

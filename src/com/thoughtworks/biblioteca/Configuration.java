@@ -5,9 +5,9 @@ import java.util.ArrayList;
 //sets up biblioteca
 
 public class Configuration {
-    Welcome welcome;
-    ArrayList<Book> books;
-    Library library;
+    private Welcome welcome;
+    private ArrayList<Book> books;
+    private Library library;
 
     public Library start() {
         welcome = new Welcome("Hello Library lover!Welcome to biblioteca");

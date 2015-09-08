@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="INjhalaac.local" name="com.thoughtworks.biblioteca.BookTest" skipped="0" tests="4" time="0.257" timestamp="2015-09-08T11:28:23">
+<testsuite errors="0" failures="0" hostname="INjhalaac.local" name="com.thoughtworks.biblioteca.CheckoutTest" skipped="0" tests="2" time="0.006" timestamp="2015-09-08T11:28:23">
   <properties>
     <property name="java.vendor" value="Oracle Corporation" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
@@ -74,27 +74,8 @@
     <property name="ant.project.invoked-targets" value="coverage" />
     <property name="ant.file.type.biblioteca_twu" value="file" />
   </properties>
-  <testcase classname="com.thoughtworks.biblioteca.BookTest" name="shouldReturnEqualIfTheBookNameISEqual" time="0.185" />
-  <testcase classname="com.thoughtworks.biblioteca.BookTest" name="shouldReturnDifferentHashCodeIfTwoBooksAreDifferent" time="0.0" />
-  <testcase classname="com.thoughtworks.biblioteca.BookTest" name="shouldReturnEqualHasCodeIfTwoBooksAreSame" time="0.0" />
-  <testcase classname="com.thoughtworks.biblioteca.BookTest" name="shouldReturnTheValidBookDetails" time="0.001" />
-  <system-out><![CDATA[16:58:23,244 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.groovy]
-16:58:23,244 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
-16:58:23,245 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [jar:file:/Users/jhalaac/Desktop/assignments/biblioteca_twu/lib/cobertura-2.1.1/cobertura-2.1.1-sources.jar!/logback.xml]
-16:58:23,247 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs multiple times on the classpath.
-16:58:23,247 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs at [jar:file:/Users/jhalaac/Desktop/assignments/biblioteca_twu/lib/cobertura-2.1.1/cobertura-2.1.1-sources.jar!/logback.xml]
-16:58:23,247 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs at [jar:file:/Users/jhalaac/Desktop/assignments/biblioteca_twu/lib/cobertura-2.1.1/cobertura-2.1.1.jar!/logback.xml]
-16:58:23,267 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@743ee38c - URL [jar:file:/Users/jhalaac/Desktop/assignments/biblioteca_twu/lib/cobertura-2.1.1/cobertura-2.1.1-sources.jar!/logback.xml] is not of type file
-16:58:23,306 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
-16:58:23,307 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
-16:58:23,316 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
-16:58:23,335 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
-16:58:23,383 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [net.sourceforge.cobertura] to INFO
-16:58:23,383 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
-16:58:23,383 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
-16:58:23,384 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
-16:58:23,385 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@4ccd37f3 - Registering current configuration as safe fallback point
-
-]]></system-out>
+  <testcase classname="com.thoughtworks.biblioteca.CheckoutTest" name="shouldRetunValidMessageOnUnsuccessfulCheckout" time="0.002" />
+  <testcase classname="com.thoughtworks.biblioteca.CheckoutTest" name="shouldRetunValidMessageOnSuccessfulCheckout" time="0.0" />
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
