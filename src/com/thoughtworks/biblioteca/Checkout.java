@@ -9,9 +9,12 @@ public class Checkout {
     }
     public void printMessage() {
 
-        if(hasBeenCheckedOut == true)
+        if(hasBeenCheckedOut) {
             System.out.println("Thank you! Enjoy the book");
-        else
+        }
+        else {
             System.out.println("That book is not available");
+        }
     }
+
 }

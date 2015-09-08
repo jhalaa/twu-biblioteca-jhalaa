@@ -23,7 +23,6 @@ public class BibliotecaMain {
             else if(inputOption.equals("3")) {
                 String bookname = s.nextLine();
                 library.checkOutContent(bookname);
-                library.displayContents();
             }
             else {
                 InvalidMenuOption invalidMenuOption = new InvalidMenuOption();

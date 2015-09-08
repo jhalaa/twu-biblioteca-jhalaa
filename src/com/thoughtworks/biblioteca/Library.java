@@ -6,7 +6,8 @@ import java.util.ArrayList;
 public class Library implements Operation {
 
     private ArrayList<Book> books = new ArrayList<Book>();
-
+    public static final String UNKNOWN_AUTHOR = null;
+    public static final int    UNKNOWN_YEAR = 0;
     public Library(ArrayList<Book> books) {
         this.books = books;
     }
@@ -35,8 +36,15 @@ public class Library implements Operation {
     }
 
     public void checkOutContent(String name) {
-        Book book = new Book(name,null,0);
-
-        books.remove(book);
+        Checkout checkout;
+        Book book = new Book(name,UNKNOWN_AUTHOR,UNKNOWN_YEAR);
+        if(books.contains(book)) {
+            books.remove(book);
+            checkout = new Checkout(true);
+            checkout.printMessage();
+        }
+        else
+           checkout = new Checkout(false);
+            checkout.printMessage();
     }
 }
