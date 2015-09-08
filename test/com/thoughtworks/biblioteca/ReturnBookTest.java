@@ -20,9 +20,16 @@ public class ReturnBookTest {
 
     @Test
     public void shouldPrintValidMessageOnsuccessfulReturn() {
-        ReturnBook returnBook = new ReturnBook();
+        ReturnBook returnBook = new ReturnBook(true);
         returnBook.displayMessage();
         assertEquals("Thank you for returning the book.\n", outContent.toString());
+    }
+
+    @Test
+    public void shouldPrintValidMessageOnUnsuccessfulReturn() {
+        ReturnBook returnBook = new ReturnBook(false);
+        returnBook.displayMessage();
+        assertEquals("That is not a valid book to return.\n", outContent.toString());
     }
 
         @After
