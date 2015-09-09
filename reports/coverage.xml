@@ -8,7 +8,7 @@
 	<packages>
 		<package name="com.thoughtworks.biblioteca" line-rate="0.6326530612244898" branch-rate="0.55" complexity="1.65">
 			<classes>
-				<class name="com.thoughtworks.biblioteca.BibliotecaMain" filename="com/thoughtworks/biblioteca/BibliotecaMain.java" line-rate="0.0" branch-rate="0.0" complexity="6.0">
+				<class name="com.thoughtworks.biblioteca.BibliotecaApplication" filename="com/thoughtworks/biblioteca/BibliotecaMain.java" line-rate="0.0" branch-rate="0.0" complexity="6.0">
 					<methods>
 						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0" complexity="0">
 							<lines>

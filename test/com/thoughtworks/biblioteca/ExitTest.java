@@ -13,6 +13,6 @@ public class ExitTest {
     public void systemExitWithArbitraryStatusCode() {
         Exit exit1 = new Exit();
         exit.expectSystemExit();
-        exit1.displayContents();
+        exit1.exitApplication();
     }
 }

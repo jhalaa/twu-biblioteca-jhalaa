@@ -1,7 +1,7 @@
 package com.thoughtworks.biblioteca;
 
-public class InvalidMenuOption implements Operation{
-    @Override
+public class InvalidMenuOption {
+
     public void displayContents() {
         System.out.println("Invalid menu option");
     }

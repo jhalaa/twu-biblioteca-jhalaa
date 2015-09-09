@@ -3,13 +3,14 @@ package com.thoughtworks.biblioteca;
 import java.util.ArrayList;
 
 //handles a list of availableBooks
-public class Library implements Operation {
+public class Library {
 
     private ArrayList<Book> availableBooks = new ArrayList<Book>();
     private ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
-    public static final String UNKNOWN_AUTHOR = null;
-    public static final int    UNKNOWN_YEAR = 0;
-    public Library(ArrayList<Book> availableBooks) {
+    private static final String UNKNOWN_AUTHOR = null;
+    private static final int    UNKNOWN_YEAR = 0;
+
+     Library(ArrayList<Book> availableBooks) {
         this.availableBooks = availableBooks;
     }
 

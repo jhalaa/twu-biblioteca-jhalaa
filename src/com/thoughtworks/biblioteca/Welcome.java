@@ -3,7 +3,7 @@ package com.thoughtworks.biblioteca;
 //displays the welcome message
 public class Welcome {
 
-    String welcomeMessage;
+    private String welcomeMessage;
 
     Welcome(String welcomeMessage) {
         this.welcomeMessage = welcomeMessage;

@@ -2,10 +2,9 @@ package com.thoughtworks.biblioteca;
 
 import static java.lang.System.exit;
 
-public class Exit implements Operation{
+public class Exit {
 
-    @Override
-    public void displayContents() {
+    public void exitApplication() {
         exit(0);
     }
 }

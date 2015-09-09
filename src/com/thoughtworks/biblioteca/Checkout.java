@@ -2,7 +2,7 @@ package com.thoughtworks.biblioteca;
 
 public class Checkout {
 
-    boolean hasBeenCheckedOut;
+    private boolean hasBeenCheckedOut;
 
     Checkout(boolean hasBeenCheckedOut) {
         this.hasBeenCheckedOut = hasBeenCheckedOut;
