@@ -190,7 +190,7 @@
 						<line number="21" hits="1" branch="false"/>
 					</lines>
 				</class>
-				<class name="com.thoughtworks.biblioteca.DecsicionMaker" filename="com/thoughtworks/biblioteca/DecsicionMaker.java" line-rate="0.38095238095238093" branch-rate="0.125" complexity="3.0">
+				<class name="com.thoughtworks.biblioteca.DecisionMaker" filename="com/thoughtworks/biblioteca/DecsicionMaker.java" line-rate="0.38095238095238093" branch-rate="0.125" complexity="3.0">
 					<methods>
 						<method name="&lt;init&gt;" signature="(Lcom/thoughtworks/biblioteca/Library;Ljava/util/Scanner;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>

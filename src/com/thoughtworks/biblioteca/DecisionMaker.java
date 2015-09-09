@@ -2,12 +2,12 @@ package com.thoughtworks.biblioteca;
 
 import java.util.Scanner;
 //delegates the functionality based on the desicion to be taken.
-public class DecsicionMaker {
+public class DecisionMaker {
 
     Scanner scanner ;
     Library library;
 
-    public DecsicionMaker(Library library,Scanner scanner) {
+    public DecisionMaker(Library library, Scanner scanner) {
         this.library = library;
         this.scanner = scanner;
     }
@@ -24,11 +24,11 @@ public class DecsicionMaker {
                 exit.exitApplication();
             }
             else if (input.equals("3")) {
-                String bookname = scanner.nextLine();
-                library.checkOutBook(bookname);
+                String bookName = scanner.nextLine();
+                library.checkOutBook(bookName);
             } else if (input.equals("4")) {
-                String bookname = scanner.nextLine();
-                library.returnBook(bookname);
+                String bookName = scanner.nextLine();
+                library.returnBook(bookName);
             }
             else {
                 InvalidMenuOption invalidMenuOption = new InvalidMenuOption();
