@@ -2,6 +2,7 @@ package com.thoughtworks.biblioteca;
 
 public class ReturnBook {
     private boolean isItSuccessful;
+
     public ReturnBook(boolean isItSuccessful) {
         this.isItSuccessful = isItSuccessful;
     }

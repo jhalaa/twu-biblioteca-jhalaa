@@ -16,4 +16,9 @@ public class BibliotecaApplication {
             dispatcher.run();
         }
     }
+
+    public static void main(String[] args) {
+        BibliotecaApplication bibliotecaApplication = new BibliotecaApplication();
+        bibliotecaApplication.start();
+    }
 }
