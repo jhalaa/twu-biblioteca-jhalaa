@@ -2,19 +2,17 @@ package com.thoughtworks.biblioteca;
 
 import java.util.Scanner;
 //delegates the functionality based on the desicion to be taken.
-public class DecisionMaker {
-
+public class Dispatcher {
     Scanner scanner ;
     Library library;
 
-    public DecisionMaker(Library library, Scanner scanner) {
+    public Dispatcher(Library library, Scanner scanner) {
         this.library = library;
         this.scanner = scanner;
     }
 
-    public void start() {
-        String input;
-       // while (true) {
+    public void run() {
+            String input;
             input = scanner.nextLine();
             if (input.equals("1")) {
                 library.displayContents();
@@ -34,6 +32,5 @@ public class DecisionMaker {
                 InvalidMenuOption invalidMenuOption = new InvalidMenuOption();
                 invalidMenuOption.displayContents();
             }
-       // }
     }
 }

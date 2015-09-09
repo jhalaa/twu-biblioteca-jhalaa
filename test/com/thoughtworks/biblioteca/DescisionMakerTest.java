@@ -25,8 +25,8 @@ public class DescisionMakerTest {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         Library library = new Library(books);
-        DecisionMaker decisionMaker = new DecisionMaker(library,scanner);
-        decisionMaker.start();
+        Dispatcher dispatcher = new Dispatcher(library,scanner);
+        dispatcher.run();
         assertEquals(String.format("%-34s %-34s %-34d\n","Harry Potter","JK Rowling",1993), outputStream.toString());
     }
 
@@ -42,8 +42,8 @@ public class DescisionMakerTest {
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
         Library library = new Library(books);
-        DecisionMaker decisionMaker = new DecisionMaker(library,scanner);
-        decisionMaker.start();
+        Dispatcher dispatcher = new Dispatcher(library,scanner);
+        dispatcher.run();
         assertEquals("Thank you! Enjoy the book\n", outputStream.toString());
     }
 
@@ -59,8 +59,8 @@ public class DescisionMakerTest {
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
         Library library = new Library(books);
-        DecisionMaker decisionMaker = new DecisionMaker(library,scanner);
-        decisionMaker.start();
+        Dispatcher dispatcher = new Dispatcher(library,scanner);
+        dispatcher.run();
         assertEquals("That book is not available\n", outputStream.toString());
     }
 
@@ -77,8 +77,8 @@ public class DescisionMakerTest {
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
         Library library = new Library(books);
         library.checkOutBook("Harry Potter");
-        DecisionMaker decisionMaker = new DecisionMaker(library,scanner);
-        decisionMaker.start();
+        Dispatcher dispatcher = new Dispatcher(library,scanner);
+        dispatcher.run();
         assertEquals("Thank you! Enjoy the book\nThank you for returning the book.\n", outputStream.toString());
     }
     @Test
@@ -94,8 +94,8 @@ public class DescisionMakerTest {
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
         Library library = new Library(books);
         library.checkOutBook("Harry Potter");
-        DecisionMaker decisionMaker = new DecisionMaker(library,scanner);
-        decisionMaker.start();
+        Dispatcher dispatcher = new Dispatcher(library,scanner);
+        dispatcher.run();
         assertEquals("Thank you! Enjoy the book\nThat is not a valid book to return.\n", outputStream.toString());
     }
 
@@ -111,8 +111,25 @@ public class DescisionMakerTest {
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
         Library library = new Library(books);
-        DecisionMaker decisionMaker = new DecisionMaker(library,scanner);
-        decisionMaker.start();
+        Dispatcher dispatcher = new Dispatcher(library,scanner);
+        dispatcher.run();
+        assertEquals("Invalid menu option\n", outputStream.toString());
+    }
+
+    @Test
+    public void shouldReturnExitWhenOptionTwoIsSelected() {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream("2".getBytes());
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setIn(inputStream);
+        System.setOut(printStream);
+        Scanner scanner = new Scanner(inputStream);
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("Harry Potter", "JK Rowling", 1993));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
+        Library library = new Library(books);
+        Dispatcher dispatcher = new Dispatcher(library,scanner);
+        dispatcher.run();
         assertEquals("Invalid menu option\n", outputStream.toString());
     }
 }

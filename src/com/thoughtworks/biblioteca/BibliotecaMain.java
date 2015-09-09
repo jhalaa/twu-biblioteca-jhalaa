@@ -1,6 +1,7 @@
 package com.thoughtworks.biblioteca;
 
-public class BibliotecMain {
+//entry point
+public class BibliotecaMain {
 
     public static void main(String[] args) {
         BibliotecaApplication bibliotecaApplication = new BibliotecaApplication();
