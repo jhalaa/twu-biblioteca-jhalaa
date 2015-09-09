@@ -96,14 +96,26 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldReturnAValidBookAfterCheckout()
+    public void shouldReturnAValidBookAfterCheckout() {
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("Harry Potter", "JK Rowling", 1995));
+        Library library1 = new Library(books);
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
+        Library library2 = new Library(books);
+        library2.checkOutBook("Da Vinci Code");
+        assertEquals(library1, library2);
+    }
+
+    @Test
+    public void shouldValidateASuccessfulReturn()
     {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Harry Potter", "JK Rowling", 1995));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
         Library library1 = new Library(books);
         Library library2 = new Library(books);
-        library1.checkOutBook("Harry Potter");
+        library2.checkOutBook("Harry Potter");
+        library2.returnBook("Harry Potter");
         assertEquals(library1,library2);
 
     }

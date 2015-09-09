@@ -53,11 +53,18 @@ public class Library implements Operation {
     }
 
     public void returnBook(String bookname) {
+        ReturnBook returnBook;
         Book book = new Book(bookname, UNKNOWN_AUTHOR, UNKNOWN_YEAR);
         if(checkedOutBooks.contains(book)) {
             int index = checkedOutBooks.indexOf(book);
             availableBooks.add(checkedOutBooks.get(index));
             checkedOutBooks.remove(book);
+            returnBook = new ReturnBook(true);
+            returnBook.displayMessage();
+        }
+        else {
+            returnBook = new ReturnBook(false);
+            returnBook.displayMessage();
         }
     }
 }
