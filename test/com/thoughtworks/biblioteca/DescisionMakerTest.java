@@ -81,4 +81,21 @@ public class DescisionMakerTest {
         decisionMaker.start();
         assertEquals("Thank you! Enjoy the book\nThank you for returning the book.\n", outputStream.toString());
     }
+    @Test
+    public void shouldReturnMessageWhenInValidBookIsReturnedAndOptionIsFour() {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream("4\nHarry\n".getBytes());
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setIn(inputStream);
+        System.setOut(printStream);
+        Scanner scanner = new Scanner(inputStream);
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("Harry Potter", "JK Rowling", 1993));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
+        Library library = new Library(books);
+        library.checkOutBook("Harry Potter");
+        DecisionMaker decisionMaker = new DecisionMaker(library,scanner);
+        decisionMaker.start();
+        assertEquals("Thank you! Enjoy the book\nThat is not a valid book to return.\n", outputStream.toString());
+    }
 }
