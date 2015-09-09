@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="INjhalaac.local" name="com.thoughtworks.biblioteca.WelcomeTest" skipped="0" tests="1" time="0.003" timestamp="2015-09-09T09:37:11">
+<testsuite errors="0" failures="0" hostname="INjhalaac.local" name="com.thoughtworks.biblioteca.ReturnBookTest" skipped="0" tests="2" time="0.004" timestamp="2015-09-09T09:37:11">
   <properties>
     <property name="java.vendor" value="Oracle Corporation" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
@@ -74,7 +74,8 @@
     <property name="ant.project.invoked-targets" value="coverage" />
     <property name="ant.file.type.biblioteca_twu" value="file" />
   </properties>
-  <testcase classname="com.thoughtworks.biblioteca.WelcomeTest" name="shouldRetunValidMessageOnWelcome" time="0.001" />
+  <testcase classname="com.thoughtworks.biblioteca.ReturnBookTest" name="shouldPrintValidMessageOnUnsuccessfulReturn" time="0.0" />
+  <testcase classname="com.thoughtworks.biblioteca.ReturnBookTest" name="shouldPrintValidMessageOnsuccessfulReturn" time="0.0" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -6,14 +6,13 @@ import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static org.mockito.Mockito.mock;
-
 public class DescisionMakerTest {
 
-    ByteArrayInputStream inputStream = new ByteArrayInputStream("1".getBytes());
+
 
     @Test
     public void shouldDisplayLibraryWhenOptionIsOne() {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream("1".getBytes());
         System.setIn(inputStream);
         Scanner scanner = new Scanner(inputStream);
         ArrayList<Book> books = new ArrayList<Book>();
