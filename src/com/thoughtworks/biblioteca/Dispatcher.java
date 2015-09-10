@@ -1,6 +1,9 @@
 package com.thoughtworks.biblioteca;
 
 import java.util.Scanner;
+
+import static java.lang.System.exit;
+
 //delegates the functionality based on the desicion to be taken.
 public class Dispatcher {
     Scanner scanner ;
@@ -18,8 +21,7 @@ public class Dispatcher {
                 library.displayContents();
             }
             else if (input.equals("2")) {
-                Exit exit = new Exit();
-                exit.exitApplication();
+               exit(0);
             }
             else if (input.equals("3")) {
                 String bookName = scanner.nextLine();

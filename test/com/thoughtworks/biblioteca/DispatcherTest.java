@@ -1,6 +1,8 @@
 package com.thoughtworks.biblioteca;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -10,7 +12,7 @@ import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
 
-public class DescisionMakerTest {
+public class DispatcherTest {
 
 
 
@@ -114,6 +116,15 @@ public class DescisionMakerTest {
         Dispatcher dispatcher = new Dispatcher(library,scanner);
         dispatcher.run();
         assertEquals("Invalid menu option\n", outputStream.toString());
+    }
+
+    @Rule
+    public final ExpectedSystemExit exit = ExpectedSystemExit.none();
+
+    @Test
+    public void shouldExitWhenOptionSelectedIsTwo() {
+            exit.expectSystemExit();
+            System.exit(0);
     }
 
 }
