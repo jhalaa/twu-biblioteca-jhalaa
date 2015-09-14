@@ -5,7 +5,7 @@ public class CheckoutMessage {
     private boolean hasBeenCheckedOut;
     private Printer printer;
 
-    CheckoutMessage(boolean hasBeenCheckedOut,Printer printer) {
+    CheckoutMessage(boolean hasBeenCheckedOut, Printer printer) {
         this.hasBeenCheckedOut = hasBeenCheckedOut;
         this.printer = printer;
     }

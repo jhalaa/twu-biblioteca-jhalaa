@@ -1,39 +1,32 @@
 package com.thoughtworks.biblioteca;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class ReturnBookMessageTest {
 
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    @Test
+    public void shouldCallMyPrinterMethodUsingTrue() {
+        Printer printer = mock(Printer.class);
+        ReturnBookMessage returnBookMessage = new ReturnBookMessage(true, printer);
+        returnBookMessage.displayMessage();
+        verify(printer).printMessage("Thank you for returning the book.");
 
-    @Before
-    public void setOutputStream() {
-        System.setOut(new PrintStream(outContent));
     }
 
     @Test
-    public void shouldPrintValidMessageOnsuccessfulReturn() {
-        ReturnBookMessage returnBookMessage = new ReturnBookMessage(true);
+    public void shouldCallMyPrinterMethodUsingFalse() {
+        Printer printer = mock(Printer.class);
+        ReturnBookMessage returnBookMessage = new ReturnBookMessage(false, printer);
         returnBookMessage.displayMessage();
-        assertEquals("Thank you for returning the book.\n", outContent.toString());
+        verify(printer).printMessage("That is not a valid book to return.");
+
     }
 
-    @Test
-    public void shouldPrintValidMessageOnUnsuccessfulReturn() {
-        ReturnBookMessage returnBookMessage = new ReturnBookMessage(false);
-        returnBookMessage.displayMessage();
-        assertEquals("That is not a valid book to return.\n", outContent.toString());
-    }
 
-        @After
-    public void cleanUpStreams() {
-        System.setOut(System.out);
-    }
 }
