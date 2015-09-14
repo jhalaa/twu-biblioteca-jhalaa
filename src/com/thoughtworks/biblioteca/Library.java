@@ -45,11 +45,11 @@ public class Library {
             int index = availableBooks.indexOf(book);
             checkedOutBooks.add(availableBooks.get(index));
             availableBooks.remove(book);
-            checkoutMessage = new CheckoutMessage(true, printer);
-            checkoutMessage.printMessage();
+            checkoutMessage = new CheckoutMessage(printer);
+            checkoutMessage.printSuccessfulMessage();
         } else {
-            checkoutMessage = new CheckoutMessage(false, printer);
-            checkoutMessage.printMessage();
+            checkoutMessage = new CheckoutMessage(printer);
+            checkoutMessage.printUnsuccessfulMessage();
         }
     }
 

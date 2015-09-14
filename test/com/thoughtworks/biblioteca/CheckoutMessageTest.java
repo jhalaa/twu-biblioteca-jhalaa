@@ -13,16 +13,16 @@ public class CheckoutMessageTest {
     @Test
     public void shouldCallMyPrinterMethodWithTrue() {
         Printer printer = mock(Printer.class);
-        CheckoutMessage checkoutMessage = new CheckoutMessage(true, printer);
-        checkoutMessage.printMessage();
+        CheckoutMessage checkoutMessage = new CheckoutMessage(printer);
+        checkoutMessage.printSuccessfulMessage();
         verify(printer).printMessage("Thank you! Enjoy the book");
     }
 
     @Test
     public void shouldCallMyPrinterMethodWithFalse() {
         Printer printer = mock(Printer.class);
-        CheckoutMessage checkoutMessage = new CheckoutMessage(false, printer);
-        checkoutMessage.printMessage();
+        CheckoutMessage checkoutMessage = new CheckoutMessage(printer);
+        checkoutMessage.printUnsuccessfulMessage();
         verify(printer).printMessage("That book is not available");
     }
 }
