@@ -20,9 +20,9 @@ public class PrinterTest {
 
     @Test
     public void shouldPrintTheMessageItIsPassedWith() {
-        Printer printer = new Printer("jhalaa");
-        printer.printMessage();
-        assertEquals("jhalaa\n", outContent.toString());
+        Printer printer = new Printer(System.out);
+        printer.printMessage("jhalaa");
+        assertEquals("jhalaa", outContent.toString());
     }
 
     @After

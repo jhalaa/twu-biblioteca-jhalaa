@@ -8,9 +8,9 @@ public class Library {
     private ArrayList<Book> availableBooks = new ArrayList<Book>();
     private ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
     private static final String UNKNOWN_AUTHOR = null;
-    private static final int    UNKNOWN_YEAR = 0;
+    private static final int UNKNOWN_YEAR = 0;
 
-     Library(ArrayList<Book> availableBooks) {
+    Library(ArrayList<Book> availableBooks) {
         this.availableBooks = availableBooks;
     }
 
@@ -27,7 +27,7 @@ public class Library {
             if (!(this.availableBooks.get(i).equals(that.availableBooks.get(i))))
                 return false;
         }
-            return true;
+        return true;
     }
 
     @Override
@@ -39,15 +39,14 @@ public class Library {
 
     public void checkOutBook(String name) {
         CheckoutMessage checkoutMessage;
-        Book book = new Book(name,UNKNOWN_AUTHOR,UNKNOWN_YEAR);
-        if(availableBooks.contains(book)) {
+        Book book = new Book(name, UNKNOWN_AUTHOR, UNKNOWN_YEAR);
+        if (availableBooks.contains(book)) {
             int index = availableBooks.indexOf(book);
             checkedOutBooks.add(availableBooks.get(index));
             availableBooks.remove(book);
             checkoutMessage = new CheckoutMessage(true);
             checkoutMessage.printMessage();
-        }
-        else {
+        } else {
             checkoutMessage = new CheckoutMessage(false);
             checkoutMessage.printMessage();
         }
@@ -56,14 +55,13 @@ public class Library {
     public void returnBook(String bookname) {
         ReturnBookMessage returnBookMessage;
         Book book = new Book(bookname, UNKNOWN_AUTHOR, UNKNOWN_YEAR);
-        if(checkedOutBooks.contains(book)) {
+        if (checkedOutBooks.contains(book)) {
             int index = checkedOutBooks.indexOf(book);
             availableBooks.add(checkedOutBooks.get(index));
             checkedOutBooks.remove(book);
             returnBookMessage = new ReturnBookMessage(true);
             returnBookMessage.displayMessage();
-        }
-        else {
+        } else {
             returnBookMessage = new ReturnBookMessage(false);
             returnBookMessage.displayMessage();
         }

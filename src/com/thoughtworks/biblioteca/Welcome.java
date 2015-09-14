@@ -4,12 +4,14 @@ package com.thoughtworks.biblioteca;
 public class Welcome {
 
     private String welcomeMessage;
+    private Printer printer;
 
-    Welcome(String welcomeMessage) {
+    Welcome(String welcomeMessage,Printer printer) {
         this.welcomeMessage = welcomeMessage;
+        this.printer = printer;
     }
 
     public void printMessage() {
-        System.out.println(welcomeMessage);
+        printer.printMessage(welcomeMessage);
     }
 }

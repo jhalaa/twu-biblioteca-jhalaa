@@ -7,9 +7,10 @@ public class Configuration {
     private Welcome welcome;
     private ArrayList<Book> books;
     private Library library;
+    private Printer printer = new Printer(System.out);
 
     public Library start() {
-        welcome = new Welcome("Hello Library lover!Welcome to biblioteca");
+        welcome = new Welcome("Hello Library lover!Welcome to biblioteca",printer);
         welcome.printMessage();
         books = new ArrayList<Book>();
         books.add(new Book("Harry Potter", "JK Rowling", 1993));

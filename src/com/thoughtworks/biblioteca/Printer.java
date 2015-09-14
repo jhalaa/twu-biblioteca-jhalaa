@@ -1,13 +1,20 @@
 package com.thoughtworks.biblioteca;
 
+import java.io.IOException;
+import java.io.OutputStream;
+
 public class Printer {
 
-    String message;
-    public Printer(String message) {
-        this.message = message;
+    OutputStream outputStream;
+    public Printer(OutputStream outputStream) {
+        this.outputStream = outputStream;
     }
 
-    public void printMessage() {
-        System.out.println(message);
+    public void printMessage(String message) {
+        try {
+            outputStream.write(message.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
