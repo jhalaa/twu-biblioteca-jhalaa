@@ -10,7 +10,7 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 
-public class CheckoutTest {
+public class CheckoutMessageTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
@@ -21,15 +21,15 @@ public class CheckoutTest {
 
     @Test
     public void shouldRetunValidMessageOnSuccessfulCheckout() {
-        Checkout checkout = new Checkout(true);
-        checkout.printMessage();
+        CheckoutMessage checkoutMessage = new CheckoutMessage(true);
+        checkoutMessage.printMessage();
         assertEquals("Thank you! Enjoy the book\n", outContent.toString());
     }
 
     @Test
     public void shouldRetunValidMessageOnUnsuccessfulCheckout() {
-        Checkout checkout = new Checkout(false);
-        checkout.printMessage();
+        CheckoutMessage checkoutMessage = new CheckoutMessage(false);
+        checkoutMessage.printMessage();
         assertEquals("That book is not available\n", outContent.toString());
     }
 

@@ -9,7 +9,7 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 
-public class ReturnBookTest {
+public class ReturnBookMessageTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
@@ -20,15 +20,15 @@ public class ReturnBookTest {
 
     @Test
     public void shouldPrintValidMessageOnsuccessfulReturn() {
-        ReturnBook returnBook = new ReturnBook(true);
-        returnBook.displayMessage();
+        ReturnBookMessage returnBookMessage = new ReturnBookMessage(true);
+        returnBookMessage.displayMessage();
         assertEquals("Thank you for returning the book.\n", outContent.toString());
     }
 
     @Test
     public void shouldPrintValidMessageOnUnsuccessfulReturn() {
-        ReturnBook returnBook = new ReturnBook(false);
-        returnBook.displayMessage();
+        ReturnBookMessage returnBookMessage = new ReturnBookMessage(false);
+        returnBookMessage.displayMessage();
         assertEquals("That is not a valid book to return.\n", outContent.toString());
     }
 

@@ -80,19 +80,19 @@
 <tr>  <td class="numLine">&nbsp;40</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">void</span> checkOutBook(String name) {</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;41</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;        Checkout checkout;</pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;        CheckoutMessage checkoutMessage;</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;42</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;        Book book = <span class="keyword">new</span> Book(name,UNKNOWN_AUTHOR,UNKNOWN_YEAR);</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;43</td>  <td class="nbHitsCovered"><a title="Line 43: Conditional coverage 100% (2/2).">&nbsp;6</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 43: Conditional coverage 100% (2/2).">        <span class="keyword">if</span>(availableBooks.contains(book)) {</a></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;44</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">int</span> index = availableBooks.indexOf(book);</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;45</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;            checkedOutBooks.add(availableBooks.get(index));</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;46</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;            availableBooks.remove(book);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;47</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;            checkout = <span class="keyword">new</span> Checkout(<span class="keyword">true</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;48</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;            checkout.printMessage();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;47</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;            checkoutMessage = <span class="keyword">new</span> CheckoutMessage(<span class="keyword">true</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;48</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;            checkoutMessage.printMessage();</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;49</td>  <td class="nbHitsCovered">&nbsp;5</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;50</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">else</span> {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;51</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;            checkout = <span class="keyword">new</span> Checkout(<span class="keyword">false</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;52</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;            checkout.printMessage();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;51</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;            checkoutMessage = <span class="keyword">new</span> CheckoutMessage(<span class="keyword">false</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;52</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;            checkoutMessage.printMessage();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;53</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;54</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
@@ -101,19 +101,19 @@
 <tr>  <td class="numLine">&nbsp;56</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">void</span> returnBook(String bookname) {</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;57</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;        ReturnBook returnBook;</pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;        ReturnBookMessage returnBookMessage;</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;58</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;        Book book = <span class="keyword">new</span> Book(bookname, UNKNOWN_AUTHOR, UNKNOWN_YEAR);</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;59</td>  <td class="nbHitsCovered"><a title="Line 59: Conditional coverage 100% (2/2).">&nbsp;3</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 59: Conditional coverage 100% (2/2).">        <span class="keyword">if</span>(checkedOutBooks.contains(book)) {</a></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;60</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">int</span> index = checkedOutBooks.indexOf(book);</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;61</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;            availableBooks.add(checkedOutBooks.get(index));</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;62</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;            checkedOutBooks.remove(book);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;63</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;            returnBook = <span class="keyword">new</span> ReturnBook(<span class="keyword">true</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;64</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;            returnBook.displayMessage();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;63</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;            returnBookMessage = <span class="keyword">new</span> ReturnBookMessage(<span class="keyword">true</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;64</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;            returnBookMessage.displayMessage();</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;65</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;66</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="keyword">else</span> {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;67</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;            returnBook = <span class="keyword">new</span> ReturnBook(<span class="keyword">false</span>);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;68</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;            returnBook.displayMessage();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;67</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;            returnBookMessage = <span class="keyword">new</span> ReturnBookMessage(<span class="keyword">false</span>);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;68</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;            returnBookMessage.displayMessage();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;69</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;70</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
@@ -121,6 +121,6 @@
   <td class="src"><pre class="src">&nbsp;}</pre></td></tr>
 </table>
 
-<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 2.1.1 on 10/9/15 10:12 AM.</div>
+<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 2.1.1 on 14/9/15 10:43 AM.</div>
 </body>
 </html>

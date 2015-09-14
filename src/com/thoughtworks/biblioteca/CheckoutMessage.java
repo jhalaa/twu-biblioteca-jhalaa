@@ -1,10 +1,10 @@
 package com.thoughtworks.biblioteca;
 
-public class Checkout {
+public class CheckoutMessage {
 
     private boolean hasBeenCheckedOut;
 
-    Checkout(boolean hasBeenCheckedOut) {
+    CheckoutMessage(boolean hasBeenCheckedOut) {
         this.hasBeenCheckedOut = hasBeenCheckedOut;
     }
     public void printMessage() {

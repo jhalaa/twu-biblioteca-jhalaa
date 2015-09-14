@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
 
-<coverage line-rate="0.9024390243902439" branch-rate="0.9583333333333334" lines-covered="111" lines-valid="123" branches-covered="23" branches-valid="24" complexity="1.625" version="2.1.1" timestamp="1441860135335">
+<coverage line-rate="0.9090909090909091" branch-rate="0.9583333333333334" lines-covered="110" lines-valid="121" branches-covered="23" branches-valid="24" complexity="1.6521739130434783" version="2.1.1" timestamp="1442207616236">
 	<sources>
 		<source>src</source>
 	</sources>
 	<packages>
-		<package name="com.thoughtworks.biblioteca" line-rate="0.9024390243902439" branch-rate="0.9583333333333334" complexity="1.625">
+		<package name="com.thoughtworks.biblioteca" line-rate="0.9090909090909091" branch-rate="0.9583333333333334" complexity="1.6521739130434783">
 			<classes>
 				<class name="com.thoughtworks.biblioteca.BibliotecaApplication" filename="com/thoughtworks/biblioteca/BibliotecaApplication.java" line-rate="0.0" branch-rate="1.0" complexity="1.5">
 					<methods>
@@ -104,7 +104,7 @@
 						<line number="34" hits="8" branch="false"/>
 					</lines>
 				</class>
-				<class name="com.thoughtworks.biblioteca.Checkout" filename="com/thoughtworks/biblioteca/Checkout.java" line-rate="1.0" branch-rate="1.0" complexity="1.5">
+				<class name="com.thoughtworks.biblioteca.CheckoutMessage" filename="com/thoughtworks/biblioteca/CheckoutMessage.java" line-rate="1.0" branch-rate="1.0" complexity="1.5">
 					<methods>
 						<method name="&lt;init&gt;" signature="(Z)V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
@@ -258,26 +258,6 @@
 						<line number="34" hits="1" branch="false"/>
 						<line number="35" hits="1" branch="false"/>
 						<line number="37" hits="6" branch="false"/>
-					</lines>
-				</class>
-				<class name="com.thoughtworks.biblioteca.Exit" filename="com/thoughtworks/biblioteca/Exit.java" line-rate="0.6666666666666666" branch-rate="1.0" complexity="1.0">
-					<methods>
-						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
-							<lines>
-								<line number="5" hits="1" branch="false"/>
-							</lines>
-						</method>
-						<method name="exitApplication" signature="()V" line-rate="0.5" branch-rate="1.0" complexity="0">
-							<lines>
-								<line number="8" hits="1" branch="false"/>
-								<line number="9" hits="0" branch="false"/>
-							</lines>
-						</method>
-					</methods>
-					<lines>
-						<line number="5" hits="1" branch="false"/>
-						<line number="8" hits="1" branch="false"/>
-						<line number="9" hits="0" branch="false"/>
 					</lines>
 				</class>
 				<class name="com.thoughtworks.biblioteca.InvalidMenuOption" filename="com/thoughtworks/biblioteca/InvalidMenuOption.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
@@ -468,9 +448,10 @@
 								<line number="4" hits="1" branch="false"/>
 							</lines>
 						</method>
-						<method name="displayMenuOption" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+						<method name="displayMenuOption" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
 								<line number="9" hits="1" branch="false"/>
+								<line number="10" hits="1" branch="false"/>
 							</lines>
 						</method>
 					</methods>
@@ -478,9 +459,10 @@
 						<line number="4" hits="1" branch="false"/>
 						<line number="6" hits="1" branch="false"/>
 						<line number="9" hits="1" branch="false"/>
+						<line number="10" hits="1" branch="false"/>
 					</lines>
 				</class>
-				<class name="com.thoughtworks.biblioteca.ReturnBook" filename="com/thoughtworks/biblioteca/ReturnBook.java" line-rate="1.0" branch-rate="1.0" complexity="1.5">
+				<class name="com.thoughtworks.biblioteca.ReturnBookMessage" filename="com/thoughtworks/biblioteca/ReturnBookMessage.java" line-rate="1.0" branch-rate="1.0" complexity="1.5">
 					<methods>
 						<method name="&lt;init&gt;" signature="(Z)V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>

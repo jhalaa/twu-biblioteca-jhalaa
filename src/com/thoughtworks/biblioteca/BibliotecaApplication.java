@@ -11,7 +11,7 @@ public class BibliotecaApplication {
     private Dispatcher dispatcher = new Dispatcher(library,new Scanner(System.in));
 
     public void start() {
-        System.out.println(menu.displayMenuOption());
+       menu.displayMenuOption();
         while(true) {
             dispatcher.run();
         }

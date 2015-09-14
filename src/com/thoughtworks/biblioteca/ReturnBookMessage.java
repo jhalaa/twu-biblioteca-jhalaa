@@ -1,9 +1,9 @@
 package com.thoughtworks.biblioteca;
 
-public class ReturnBook {
+public class ReturnBookMessage {
     private boolean isItSuccessful;
 
-    public ReturnBook(boolean isItSuccessful) {
+    public ReturnBookMessage(boolean isItSuccessful) {
         this.isItSuccessful = isItSuccessful;
     }
 

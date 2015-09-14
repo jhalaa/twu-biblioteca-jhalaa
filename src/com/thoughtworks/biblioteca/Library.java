@@ -38,34 +38,34 @@ public class Library {
     }
 
     public void checkOutBook(String name) {
-        Checkout checkout;
+        CheckoutMessage checkoutMessage;
         Book book = new Book(name,UNKNOWN_AUTHOR,UNKNOWN_YEAR);
         if(availableBooks.contains(book)) {
             int index = availableBooks.indexOf(book);
             checkedOutBooks.add(availableBooks.get(index));
             availableBooks.remove(book);
-            checkout = new Checkout(true);
-            checkout.printMessage();
+            checkoutMessage = new CheckoutMessage(true);
+            checkoutMessage.printMessage();
         }
         else {
-            checkout = new Checkout(false);
-            checkout.printMessage();
+            checkoutMessage = new CheckoutMessage(false);
+            checkoutMessage.printMessage();
         }
     }
 
     public void returnBook(String bookname) {
-        ReturnBook returnBook;
+        ReturnBookMessage returnBookMessage;
         Book book = new Book(bookname, UNKNOWN_AUTHOR, UNKNOWN_YEAR);
         if(checkedOutBooks.contains(book)) {
             int index = checkedOutBooks.indexOf(book);
             availableBooks.add(checkedOutBooks.get(index));
             checkedOutBooks.remove(book);
-            returnBook = new ReturnBook(true);
-            returnBook.displayMessage();
+            returnBookMessage = new ReturnBookMessage(true);
+            returnBookMessage.displayMessage();
         }
         else {
-            returnBook = new ReturnBook(false);
-            returnBook.displayMessage();
+            returnBookMessage = new ReturnBookMessage(false);
+            returnBookMessage.displayMessage();
         }
     }
 }
