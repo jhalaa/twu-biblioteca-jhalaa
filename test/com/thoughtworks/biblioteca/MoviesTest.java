@@ -50,4 +50,11 @@ public class MoviesTest {
         assertEquals(movies1.hashCode(), movies2.hashCode());
     }
 
+    @Test
+    public void shouldReturnUnequalHasCodeIfTwoBooksAreDifferent() {
+        Movies movies1 = new Movies("Titani1", 1990, "James Cameron", 5);
+        Movies movies2 = new Movies("Titanic", 1990, "James Cameron", 5);
+        assertNotEquals(movies1.hashCode(), movies2.hashCode());
+    }
+
 }
