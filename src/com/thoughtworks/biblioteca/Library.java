@@ -60,11 +60,11 @@ public class Library {
             int index = checkedOutBooks.indexOf(book);
             availableBooks.add(checkedOutBooks.get(index));
             checkedOutBooks.remove(book);
-            returnBookMessage = new ReturnBookMessage(true, printer);
-            returnBookMessage.displayMessage();
+            returnBookMessage = new ReturnBookMessage(printer);
+            returnBookMessage.displayAvailableMessage();
         } else {
-            returnBookMessage = new ReturnBookMessage(false, printer);
-            returnBookMessage.displayMessage();
+            returnBookMessage = new ReturnBookMessage(printer);
+            returnBookMessage.displayNotAvailableMessage();
         }
     }
 }
