@@ -35,6 +35,13 @@ public class Movies {
         if(this.movieName.equals(movies.movieName))
             return true;
         return false;
+    }
 
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 7 * hash + this.movieName.hashCode();
+        hash = 7 * hash + this.movieDirector.hashCode();
+        return hash+movieYear;
     }
 }
