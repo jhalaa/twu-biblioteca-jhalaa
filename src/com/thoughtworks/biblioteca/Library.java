@@ -9,6 +9,7 @@ public class Library {
     private ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
     private static final String UNKNOWN_AUTHOR = null;
     private static final int UNKNOWN_YEAR = 0;
+    private Printer printer = new Printer(System.out);
 
     Library(ArrayList<Book> availableBooks) {
         this.availableBooks = availableBooks;
@@ -44,10 +45,10 @@ public class Library {
             int index = availableBooks.indexOf(book);
             checkedOutBooks.add(availableBooks.get(index));
             availableBooks.remove(book);
-            checkoutMessage = new CheckoutMessage(true);
+            checkoutMessage = new CheckoutMessage(true, printer);
             checkoutMessage.printMessage();
         } else {
-            checkoutMessage = new CheckoutMessage(false);
+            checkoutMessage = new CheckoutMessage(false, printer);
             checkoutMessage.printMessage();
         }
     }

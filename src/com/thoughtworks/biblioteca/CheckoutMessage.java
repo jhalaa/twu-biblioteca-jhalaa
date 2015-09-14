@@ -3,17 +3,19 @@ package com.thoughtworks.biblioteca;
 public class CheckoutMessage {
 
     private boolean hasBeenCheckedOut;
+    private Printer printer;
 
-    CheckoutMessage(boolean hasBeenCheckedOut) {
+    CheckoutMessage(boolean hasBeenCheckedOut,Printer printer) {
         this.hasBeenCheckedOut = hasBeenCheckedOut;
+        this.printer = printer;
     }
     public void printMessage() {
 
         if(hasBeenCheckedOut) {
-            System.out.println("Thank you! Enjoy the book");
+            printer.printMessage("Thank you! Enjoy the book");
         }
         else {
-            System.out.println("That book is not available");
+            printer.printMessage("That book is not available");
         }
     }
 

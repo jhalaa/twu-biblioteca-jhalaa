@@ -21,16 +21,18 @@ public class CheckoutMessageTest {
 
     @Test
     public void shouldRetunValidMessageOnSuccessfulCheckout() {
-        CheckoutMessage checkoutMessage = new CheckoutMessage(true);
+        Printer printer = new Printer(System.out);
+        CheckoutMessage checkoutMessage = new CheckoutMessage(true, printer);
         checkoutMessage.printMessage();
-        assertEquals("Thank you! Enjoy the book\n", outContent.toString());
+        assertEquals("Thank you! Enjoy the book", outContent.toString());
     }
 
     @Test
     public void shouldRetunValidMessageOnUnsuccessfulCheckout() {
-        CheckoutMessage checkoutMessage = new CheckoutMessage(false);
+        Printer printer = new Printer(System.out);
+        CheckoutMessage checkoutMessage = new CheckoutMessage(false, printer);
         checkoutMessage.printMessage();
-        assertEquals("That book is not available\n", outContent.toString());
+        assertEquals("That book is not available", outContent.toString());
     }
 
     @After
