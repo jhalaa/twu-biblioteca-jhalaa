@@ -24,4 +24,10 @@ public class MoviesTest {
         assertEquals("James Cameron",movies.getMovieDiector());
     }
 
+    @Test
+    public void shouldHaveAMovieRating() {
+        Movies movies = new Movies();
+        assertEquals(5,movies.getMovieRating());
+    }
+
 }
