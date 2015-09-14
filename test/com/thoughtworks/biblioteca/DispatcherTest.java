@@ -46,7 +46,7 @@ public class DispatcherTest {
         Library library = new Library(books);
         Dispatcher dispatcher = new Dispatcher(library,scanner);
         dispatcher.run();
-        assertEquals("Thank you! Enjoy the book\n", outputStream.toString());
+        assertEquals("Thank you! Enjoy the book", outputStream.toString());
     }
 
     @Test
@@ -63,7 +63,7 @@ public class DispatcherTest {
         Library library = new Library(books);
         Dispatcher dispatcher = new Dispatcher(library,scanner);
         dispatcher.run();
-        assertEquals("That book is not available\n", outputStream.toString());
+        assertEquals("That book is not available", outputStream.toString());
     }
 
     @Test
@@ -81,7 +81,7 @@ public class DispatcherTest {
         library.checkOutBook("Harry Potter");
         Dispatcher dispatcher = new Dispatcher(library,scanner);
         dispatcher.run();
-        assertEquals("Thank you! Enjoy the book\nThank you for returning the book.\n", outputStream.toString());
+        assertEquals("Thank you! Enjoy the bookThank you for returning the book.\n", outputStream.toString());
     }
     @Test
     public void shouldReturnMessageWhenInValidBookIsReturnedAndOptionIsFour() {
@@ -98,7 +98,7 @@ public class DispatcherTest {
         library.checkOutBook("Harry Potter");
         Dispatcher dispatcher = new Dispatcher(library,scanner);
         dispatcher.run();
-        assertEquals("Thank you! Enjoy the book\nThat is not a valid book to return.\n", outputStream.toString());
+        assertEquals("Thank you! Enjoy the bookThat is not a valid book to return.\n", outputStream.toString());
     }
 
     @Test
