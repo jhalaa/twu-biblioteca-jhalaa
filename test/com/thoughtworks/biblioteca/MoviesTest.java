@@ -18,4 +18,10 @@ public class MoviesTest {
         assertEquals(1990,movies.getMovieYear());
     }
 
+    @Test
+    public void shouldHaveADirector() {
+        Movies movies = new Movies();
+        assertEquals("James Cameron",movies.getMovieDiector());
+    }
+
 }
