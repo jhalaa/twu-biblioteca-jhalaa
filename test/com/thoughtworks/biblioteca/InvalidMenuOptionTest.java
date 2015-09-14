@@ -8,26 +8,16 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class InvalidMenuOptionTest {
 
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-
-    @Before
-    public void setOutputStream() {
-        System.setOut(new PrintStream(outContent));
-    }
-
     @Test
-    public void shouldRetunValidMessageOnInvalidCommand() {
-        InvalidMenuOption invalidMenuOption = new InvalidMenuOption();
-        invalidMenuOption.displayContents();
-        assertEquals("Invalid menu option\n", outContent.toString());
-    }
-
-    @After
-    public void cleanUpStreams() {
-        System.setOut(System.out);
-        System.out.println(" ");
+    public void shouldRetunValidMessageOnWelcome() {
+        Printer printer = mock(Printer.class);
+        InvalidMenuOption invalidMenuOption = new InvalidMenuOption(printer);
+        invalidMenuOption.displayMessage();
+        verify(printer).printMessage("Invalid menu option");
     }
 }

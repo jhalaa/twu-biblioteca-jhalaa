@@ -8,7 +8,7 @@ import static java.lang.System.exit;
 public class Dispatcher {
     Scanner scanner ;
     Library library;
-
+    Printer printer = new Printer(System.out);
     public Dispatcher(Library library, Scanner scanner) {
         this.library = library;
         this.scanner = scanner;
@@ -31,8 +31,8 @@ public class Dispatcher {
                 library.returnBook(bookName);
             }
             else {
-                InvalidMenuOption invalidMenuOption = new InvalidMenuOption();
-                invalidMenuOption.displayContents();
+                InvalidMenuOption invalidMenuOption = new InvalidMenuOption(printer);
+                invalidMenuOption.displayMessage();
             }
     }
 }

@@ -115,7 +115,7 @@ public class DispatcherTest {
         Library library = new Library(books);
         Dispatcher dispatcher = new Dispatcher(library,scanner);
         dispatcher.run();
-        assertEquals("Invalid menu option\n", outputStream.toString());
+        assertEquals("Invalid menu option", outputStream.toString());
     }
 
     @Rule
