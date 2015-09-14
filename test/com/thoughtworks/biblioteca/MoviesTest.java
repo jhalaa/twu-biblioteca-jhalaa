@@ -3,6 +3,7 @@ package com.thoughtworks.biblioteca;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class MoviesTest {
 
@@ -34,6 +35,12 @@ public class MoviesTest {
     public void shouldBeEqualIfTheMovieNameIsSame() {
         Movies movies = new Movies("Titanic", 1990, "James Cameron", 5);
         assertEquals(movies, new Movies("Titanic", 1991, "James Camerone", 4));
+    }
+
+    @Test
+    public void shouldBeUnEqualIfTheMovieNameIsDifferent() {
+        Movies movies = new Movies("Titanic", 1990, "James Cameron", 5);
+        assertNotEquals(movies, new Movies("Titanic1", 1990, "James Cameron", 5));
     }
 
 }
