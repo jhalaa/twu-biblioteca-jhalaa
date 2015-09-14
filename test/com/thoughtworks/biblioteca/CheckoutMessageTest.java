@@ -1,14 +1,11 @@
 package com.thoughtworks.biblioteca;
 
 import org.junit.Test;
-import java.io.ByteArrayOutputStream;
-
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+//displays appropriate checkout message
 public class CheckoutMessageTest {
-
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Test
     public void shouldCallMyPrinterMethodWithTrue() {

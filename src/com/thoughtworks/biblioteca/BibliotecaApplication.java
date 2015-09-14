@@ -7,7 +7,8 @@ public class BibliotecaApplication {
 
     private Configuration configuration = new Configuration();
     private Library library = configuration.start();
-    private Menu menu = new Menu();
+    private Printer printer = new Printer(System.out);
+    private Menu menu = new Menu(printer);
     private Dispatcher dispatcher = new Dispatcher(library,new Scanner(System.in));
 
     public void start() {
