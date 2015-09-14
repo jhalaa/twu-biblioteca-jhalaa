@@ -9,7 +9,7 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 
-public class MenuTest {
+public class PrinterTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
@@ -19,15 +19,14 @@ public class MenuTest {
     }
 
     @Test
-    public void shouldRetunValidMessageOnWelcome() {
-        Menu menu = new Menu();
-        menu.displayMenuOption();
-        assertEquals("1:List of books\t2:Exit\t3:Checkout\t4:Return\n", outContent.toString());
+    public void shouldPrintTheMessageItIsPassedWith() {
+        Printer printer = new Printer("jhalaa");
+        printer.printMessage();
+        assertEquals("jhalaa\n", outContent.toString());
     }
 
     @After
     public void cleanUpStreams() {
         System.setOut(System.out);
     }
-
 }
