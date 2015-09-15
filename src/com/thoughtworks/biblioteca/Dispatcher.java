@@ -33,7 +33,9 @@ public class Dispatcher {
                 String bookName = scanner.nextLine();
                 bookLibrary.returnBook(bookName);
             }
-
+            else if (input.equals("6")) {
+                movieLibrary.displayContents();
+            }
             else {
                 InvalidMenuOption invalidMenuOption = new InvalidMenuOption(printer);
                 invalidMenuOption.displayMessage();

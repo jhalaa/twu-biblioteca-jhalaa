@@ -17,7 +17,7 @@ public class DispatcherTest {
 
 
     @Test
-    public void shouldDisplayLibraryWhenOptionIsOne() {
+    public void shouldDisplayBookLibraryWhenOptionIsOne() {
         ByteArrayInputStream inputStream = new ByteArrayInputStream("1".getBytes());
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(outputStream);
@@ -33,6 +33,25 @@ public class DispatcherTest {
         Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary,scanner);
         dispatcher.run();
         assertEquals(String.format("%-34s %-34s %-34d\n","Harry Potter","JK Rowling",1993), outputStream.toString());
+    }
+
+    @Test
+    public void shouldDisplayMovieLibraryWhenOptionIsSix() {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream("6".getBytes());
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setIn(inputStream);
+        System.setOut(printStream);
+        Scanner scanner = new Scanner(inputStream);
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("Harry Potter", "JK Rowling", 1993));
+        BookLibrary bookLibrary = new BookLibrary(books);
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary,scanner);
+        dispatcher.run();
+        assertEquals(String.format("%-34s %-34d %-34s %-34d\n","Titanic",1990,"James Cameron",5), outputStream.toString());
     }
 
     @Test
@@ -117,8 +136,8 @@ public class DispatcherTest {
     }
 
     @Test
-    public void shouldReturnMessageWhenInMenuOptionIsSelected() {
-        ByteArrayInputStream inputStream = new ByteArrayInputStream("6".getBytes());
+    public void shouldReturnMessageWhenInvalidMenuOptionIsSelected() {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream("10".getBytes());
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(outputStream);
         System.setIn(inputStream);
