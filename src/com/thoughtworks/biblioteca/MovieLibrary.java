@@ -22,4 +22,11 @@ public class MovieLibrary {
         }
         return true;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 7 * hash + availableMovies.get(0).hashCode();
+        return hash;
+    }
 }
