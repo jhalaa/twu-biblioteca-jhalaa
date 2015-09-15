@@ -8,8 +8,11 @@ import static java.lang.System.exit;
 public class Dispatcher {
     Scanner scanner ;
     BookLibrary bookLibrary;
+    MovieLibrary movieLibrary;
     Printer printer = new Printer(System.out);
-    public Dispatcher(BookLibrary bookLibrary, Scanner scanner) {
+
+    public Dispatcher(MovieLibrary movieLibrary, BookLibrary bookLibrary, Scanner scanner) {
+        this.movieLibrary = movieLibrary;
         this.bookLibrary = bookLibrary;
         this.scanner = scanner;
     }

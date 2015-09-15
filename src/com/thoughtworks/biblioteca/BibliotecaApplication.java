@@ -6,14 +6,16 @@ import java.util.Scanner;
 public class BibliotecaApplication {
 
     private ConfigurationOfBooks configurationOfBooks = new ConfigurationOfBooks();
+    private ConfigurationOfMovies configurationOfMovies = new ConfigurationOfMovies();
     private BookLibrary bookLibrary = configurationOfBooks.start();
+    private MovieLibrary movieLibrary = configurationOfMovies.start();
     private Printer printer = new Printer(System.out);
     private Menu menu = new Menu(printer);
-    private Dispatcher dispatcher = new Dispatcher(bookLibrary,new Scanner(System.in));
+    private Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, new Scanner(System.in));
 
     public void start() {
-       menu.displayMenuOption();
-        while(true) {
+        menu.displayMenuOption();
+        while (true) {
             dispatcher.run();
         }
     }
