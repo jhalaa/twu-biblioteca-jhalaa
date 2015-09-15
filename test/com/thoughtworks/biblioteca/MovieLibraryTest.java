@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class MovieLibraryTest {
 
@@ -25,6 +26,19 @@ public class MovieLibraryTest {
         MovieLibrary movieLibrary1 = new MovieLibrary(movies);
         MovieLibrary movieLibrary2 = new MovieLibrary(movies);
         assertEquals(movieLibrary1,movieLibrary2);
+    }
+
+    @Test
+    public void shouldReturnNotEqualIfTheMovieListsAreNotEqual() {
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        movies.add(new Movies("Inception", 2010, "Christopher Nolan", 9));
+        MovieLibrary movieLibrary1 = new MovieLibrary(movies);
+        ArrayList<Movies> movies1 = new ArrayList<Movies>();
+        movies1.add(new Movies("Titanic2", 1990, "James Cameron", 5));
+        movies1.add(new Movies("Inception", 2010, "Christopher Nolan", 9));
+        MovieLibrary movieLibrary2 = new MovieLibrary(movies1);
+        assertNotEquals(movieLibrary1, movieLibrary2);
     }
 
 }
