@@ -5,8 +5,8 @@ import java.util.Scanner;
 //set up biblioteca
 public class BibliotecaApplication {
 
-    private Configuration configuration = new Configuration();
-    private BookLibrary bookLibrary = configuration.start();
+    private ConfigurationOfBooks configurationOfBooks = new ConfigurationOfBooks();
+    private BookLibrary bookLibrary = configurationOfBooks.start();
     private Printer printer = new Printer(System.out);
     private Menu menu = new Menu(printer);
     private Dispatcher dispatcher = new Dispatcher(bookLibrary,new Scanner(System.in));

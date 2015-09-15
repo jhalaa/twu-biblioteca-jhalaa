@@ -17,5 +17,14 @@ public class MovieLibraryTest {
         assertEquals(movies1,movieLibrary.getMovieLibrary());
     }
 
+    @Test
+    public void shouldReturnEqualIfTheMovieListsAreEqual() {
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        movies.add(new Movies("Inception", 2010, "Christopher Nolan", 9));
+        MovieLibrary movieLibrary1 = new MovieLibrary(movies);
+        MovieLibrary movieLibrary2 = new MovieLibrary(movies);
+        assertEquals(movieLibrary1,movieLibrary2);
+    }
 
 }
