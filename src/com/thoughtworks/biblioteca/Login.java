@@ -9,4 +9,10 @@ public class Login {
     public Login(ArrayList<User> users) {
         this.users = users;
     }
+
+    public boolean validateUser(User user) {
+        if(users.contains(user))
+            return true;
+        return false;
+    }
 }
