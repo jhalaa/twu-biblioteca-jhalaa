@@ -19,7 +19,7 @@ public class MovieLibraryTest {
         ArrayList<Movies> movies1 = new ArrayList<Movies>();
         movies1.add(new Movies("Titanic", 1990, "James Cameron", 5));
         MovieLibrary movieLibrary = new MovieLibrary(movies1);
-        assertEquals(movies1,movieLibrary.getMovieLibrary());
+        assertEquals(movies1, movieLibrary.getMovieLibrary());
     }
 
     @Test
@@ -29,7 +29,7 @@ public class MovieLibraryTest {
         movies.add(new Movies("Inception", 2010, "Christopher Nolan", 9));
         MovieLibrary movieLibrary1 = new MovieLibrary(movies);
         MovieLibrary movieLibrary2 = new MovieLibrary(movies);
-        assertEquals(movieLibrary1,movieLibrary2);
+        assertEquals(movieLibrary1, movieLibrary2);
     }
 
     @Test
@@ -83,8 +83,7 @@ public class MovieLibraryTest {
     }
 
     @Test
-    public void shouldValidateASuccessfulReturn()
-    {
+    public void shouldValidateASuccessfulReturn() {
         ArrayList<Movies> movies = new ArrayList<Movies>();
         movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
         movies.add(new Movies("Inception", 2010, "Christopher Nolan", 9));
@@ -111,6 +110,17 @@ public class MovieLibraryTest {
         movieLibrary.displayContents();
         assertEquals(String.format("%-34s %-34d %-34s %-34d\n", "Titanic", 1990, "James Cameron", 5), outContent.toString());
     }
+
+    @Test
+    public void shouldReturnValidMovies() {
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        movies.add(new Movies("Inception", 2010, "Christopher Nolan", 9));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        movieLibrary.displayContents();
+        assertEquals(String.format("%-34s %-34d %-34s %-34d\n%-34s %-34d %-34s %-34d\n", "Titanic", 1990, "James Cameron", 5, "Inception", 2010, "Christopher Nolan", 9), outContent.toString());
+    }
+
     @After
     public void cleanUpStreams() {
         System.setOut(System.out);
