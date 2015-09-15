@@ -17,7 +17,7 @@ public class ConfigurationTest {
         books.add(new Book("Atlas shrugged", "Ayn Rand", 1990));
         books.add(new Book("Emma", "Jane Austen", 1890));
         books.add(new Book("Hitchicker's guide to galaxy", "Douglas Adams", 1989));
-        Library library = new Library(books);
-        assertEquals(configuration.start(),library);
+        BookLibrary bookLibrary = new BookLibrary(books);
+        assertEquals(configuration.start(), bookLibrary);
     }
 }

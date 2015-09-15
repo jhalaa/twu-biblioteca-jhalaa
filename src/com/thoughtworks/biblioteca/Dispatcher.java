@@ -7,10 +7,10 @@ import static java.lang.System.exit;
 //delegates the functionality based on the desicion to be taken.
 public class Dispatcher {
     Scanner scanner ;
-    Library library;
+    BookLibrary bookLibrary;
     Printer printer = new Printer(System.out);
-    public Dispatcher(Library library, Scanner scanner) {
-        this.library = library;
+    public Dispatcher(BookLibrary bookLibrary, Scanner scanner) {
+        this.bookLibrary = bookLibrary;
         this.scanner = scanner;
     }
 
@@ -18,17 +18,17 @@ public class Dispatcher {
             String input;
             input = scanner.nextLine();
             if (input.equals("1")) {
-                library.displayContents();
+                bookLibrary.displayContents();
             }
             else if (input.equals("2")) {
                exit(0);
             }
             else if (input.equals("3")) {
                 String bookName = scanner.nextLine();
-                library.checkOutBook(bookName);
+                bookLibrary.checkOutBook(bookName);
             } else if (input.equals("4")) {
                 String bookName = scanner.nextLine();
-                library.returnBook(bookName);
+                bookLibrary.returnBook(bookName);
             }
             else {
                 InvalidMenuOption invalidMenuOption = new InvalidMenuOption(printer);

@@ -8,8 +8,8 @@ public class WelcomeTest {
     @Test
     public void shouldRetunValidMessageOnWelcome() {
         Printer printer = mock(Printer.class);
-        Welcome welcome = new Welcome("Hello Library lover!Welcome to biblioteca",printer);
+        Welcome welcome = new Welcome("Hello BookLibrary lover!Welcome to biblioteca",printer);
         welcome.printMessage();
-      verify(printer).printMessage("Hello Library lover!Welcome to biblioteca");
+      verify(printer).printMessage("Hello BookLibrary lover!Welcome to biblioteca");
     }
 }

@@ -6,10 +6,10 @@ import java.util.Scanner;
 public class BibliotecaApplication {
 
     private Configuration configuration = new Configuration();
-    private Library library = configuration.start();
+    private BookLibrary bookLibrary = configuration.start();
     private Printer printer = new Printer(System.out);
     private Menu menu = new Menu(printer);
-    private Dispatcher dispatcher = new Dispatcher(library,new Scanner(System.in));
+    private Dispatcher dispatcher = new Dispatcher(bookLibrary,new Scanner(System.in));
 
     public void start() {
        menu.displayMenuOption();

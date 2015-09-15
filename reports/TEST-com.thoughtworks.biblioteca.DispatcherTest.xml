@@ -13,7 +13,7 @@
     <property name="package.name" value="com.twu.biblioteca" />
     <property name="user.name" value="jhalaac" />
     <property name="user.language" value="en" />
-    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib" />
+    <property name="sun.boot.bookLibrary.path" value="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib" />
     <property name="ant.project.default-target" value="coverage" />
     <property name="ant.project.name" value="biblioteca_twu" />
     <property name="java.version" value="1.7.0_79" />
@@ -34,7 +34,7 @@
     <property name="os.version" value="10.9.5" />
     <property name="path.separator" value=":" />
     <property name="java.vm.version" value="24.79-b02" />
-    <property name="ant.library.dir" value="/usr/local/Cellar/ant/1.9.6/libexec/lib" />
+    <property name="ant.bookLibrary.dir" value="/usr/local/Cellar/ant/1.9.6/libexec/lib" />
     <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob" />
     <property name="sun.io.unicode.encoding" value="UnicodeBig" />
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
@@ -42,7 +42,7 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
     <property name="user.home" value="/Users/jhalaac" />
     <property name="java.specification.vendor" value="Oracle Corporation" />
-    <property name="java.library.path" value="/Users/jhalaac/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
+    <property name="java.bookLibrary.path" value="/Users/jhalaac/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
     <property name="java.vendor.url" value="http://java.oracle.com/" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="gopherProxySet" value="false" />

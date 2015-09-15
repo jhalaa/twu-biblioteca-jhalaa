@@ -6,11 +6,11 @@ import java.util.ArrayList;
 public class Configuration {
     private Welcome welcome;
     private ArrayList<Book> books;
-    private Library library;
+    private BookLibrary bookLibrary;
     private Printer printer = new Printer(System.out);
 
-    public Library start() {
-        welcome = new Welcome("Hello Library lover!Welcome to biblioteca",printer);
+    public BookLibrary start() {
+        welcome = new Welcome("Hello BookLibrary lover!Welcome to biblioteca",printer);
         welcome.printMessage();
         books = new ArrayList<Book>();
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
@@ -18,7 +18,7 @@ public class Configuration {
         books.add(new Book("Atlas shrugged", "Ayn Rand", 1990));
         books.add(new Book("Emma", "Jane Austen", 1890));
         books.add(new Book("Hitchicker's guide to galaxy", "Douglas Adams", 1989));
-        library = new Library(books);
-        return library;
+        bookLibrary = new BookLibrary(books);
+        return bookLibrary;
     }
 }

@@ -3,7 +3,7 @@ package com.thoughtworks.biblioteca;
 import java.util.ArrayList;
 
 //handles a list of availableBooks
-public class Library {
+public class BookLibrary {
 
     private ArrayList<Book> availableBooks = new ArrayList<Book>();
     private ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
@@ -11,7 +11,7 @@ public class Library {
     private static final int UNKNOWN_YEAR = 0;
     private Printer printer = new Printer(System.out);
 
-    Library(ArrayList<Book> availableBooks) {
+    BookLibrary(ArrayList<Book> availableBooks) {
         this.availableBooks = availableBooks;
     }
 
@@ -23,7 +23,7 @@ public class Library {
 
     @Override
     public boolean equals(Object object) {
-        Library that = (Library) object;
+        BookLibrary that = (BookLibrary) object;
         for (int i = 0; i < availableBooks.size(); i++) {
             if (!(this.availableBooks.get(i).equals(that.availableBooks.get(i))))
                 return false;

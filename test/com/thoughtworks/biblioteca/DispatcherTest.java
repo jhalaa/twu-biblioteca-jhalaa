@@ -26,8 +26,8 @@ public class DispatcherTest {
         Scanner scanner = new Scanner(inputStream);
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
-        Library library = new Library(books);
-        Dispatcher dispatcher = new Dispatcher(library,scanner);
+        BookLibrary bookLibrary = new BookLibrary(books);
+        Dispatcher dispatcher = new Dispatcher(bookLibrary,scanner);
         dispatcher.run();
         assertEquals(String.format("%-34s %-34s %-34d\n","Harry Potter","JK Rowling",1993), outputStream.toString());
     }
@@ -43,8 +43,8 @@ public class DispatcherTest {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
-        Library library = new Library(books);
-        Dispatcher dispatcher = new Dispatcher(library,scanner);
+        BookLibrary bookLibrary = new BookLibrary(books);
+        Dispatcher dispatcher = new Dispatcher(bookLibrary,scanner);
         dispatcher.run();
         assertEquals("Thank you! Enjoy the book", outputStream.toString());
     }
@@ -60,8 +60,8 @@ public class DispatcherTest {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
-        Library library = new Library(books);
-        Dispatcher dispatcher = new Dispatcher(library,scanner);
+        BookLibrary bookLibrary = new BookLibrary(books);
+        Dispatcher dispatcher = new Dispatcher(bookLibrary,scanner);
         dispatcher.run();
         assertEquals("That book is not available", outputStream.toString());
     }
@@ -77,9 +77,9 @@ public class DispatcherTest {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
-        Library library = new Library(books);
-        library.checkOutBook("Harry Potter");
-        Dispatcher dispatcher = new Dispatcher(library,scanner);
+        BookLibrary bookLibrary = new BookLibrary(books);
+        bookLibrary.checkOutBook("Harry Potter");
+        Dispatcher dispatcher = new Dispatcher(bookLibrary,scanner);
         dispatcher.run();
         assertEquals("Thank you! Enjoy the bookThank you for returning the book.", outputStream.toString());
     }
@@ -94,9 +94,9 @@ public class DispatcherTest {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
-        Library library = new Library(books);
-        library.checkOutBook("Harry Potter");
-        Dispatcher dispatcher = new Dispatcher(library,scanner);
+        BookLibrary bookLibrary = new BookLibrary(books);
+        bookLibrary.checkOutBook("Harry Potter");
+        Dispatcher dispatcher = new Dispatcher(bookLibrary,scanner);
         dispatcher.run();
         assertEquals("Thank you! Enjoy the bookThat is not a valid book to return.", outputStream.toString());
     }
@@ -112,8 +112,8 @@ public class DispatcherTest {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
-        Library library = new Library(books);
-        Dispatcher dispatcher = new Dispatcher(library,scanner);
+        BookLibrary bookLibrary = new BookLibrary(books);
+        Dispatcher dispatcher = new Dispatcher(bookLibrary,scanner);
         dispatcher.run();
         assertEquals("Invalid menu option", outputStream.toString());
     }
