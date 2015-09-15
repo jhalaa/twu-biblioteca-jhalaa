@@ -33,6 +33,7 @@ public class Dispatcher {
                 String bookName = scanner.nextLine();
                 bookLibrary.returnBook(bookName);
             }
+
             else {
                 InvalidMenuOption invalidMenuOption = new InvalidMenuOption(printer);
                 invalidMenuOption.displayMessage();

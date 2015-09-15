@@ -30,9 +30,14 @@ public class Movies {
     }
 
     @Override
+    public String toString() {
+        return String.format("%-34s %-34d %-34s %-34d", movieName, movieYear, movieDirector, movieRating);
+    }
+
+    @Override
     public boolean equals(Object object) {
-        Movies movies = (Movies)object;
-        if(this.movieName.equals(movies.movieName))
+        Movies movies = (Movies) object;
+        if (this.movieName.equals(movies.movieName))
             return true;
         return false;
     }
@@ -42,6 +47,6 @@ public class Movies {
         int hash = 3;
         hash = 7 * hash + this.movieName.hashCode();
         hash = 7 * hash + this.movieDirector.hashCode();
-        return hash+movieYear;
+        return hash + movieYear;
     }
 }

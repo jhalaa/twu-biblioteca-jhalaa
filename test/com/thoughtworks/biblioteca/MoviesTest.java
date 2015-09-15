@@ -57,4 +57,10 @@ public class MoviesTest {
         assertNotEquals(movies1.hashCode(), movies2.hashCode());
     }
 
+    @Test
+    public void shouldReturnTheValidMovieDetails() {
+        Movies movies1 = new Movies("Titanic", 1990, "James Cameron", 5);
+        assertEquals(movies1.toString(), String.format("%-34s %-34d %-34s %-34d", "Titanic",1990, "James Cameron", 5));
+    }
+
 }
