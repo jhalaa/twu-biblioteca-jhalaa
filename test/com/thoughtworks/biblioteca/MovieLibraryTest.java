@@ -67,5 +67,14 @@ public class MovieLibraryTest {
         assertNotEquals(movieLibrary1.hashCode(), movieLibrary2.hashCode());
     }
 
-
+    @Test
+    public void shouldReturnAValidMovieListAfterCheckout() {
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary1 = new MovieLibrary(movies);
+        movies.add(new Movies("Inception", 2010, "Christopher Nolan", 9));
+        MovieLibrary movieLibrary2 = new MovieLibrary(movies);
+        movieLibrary1.checkout("Inception");
+        assertEquals(movieLibrary1, movieLibrary2);
+    }
 }
