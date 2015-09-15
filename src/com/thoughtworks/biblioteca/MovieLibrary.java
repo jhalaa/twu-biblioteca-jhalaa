@@ -65,4 +65,10 @@ public class MovieLibrary {
             returnBookMessage.displayNotAvailableMessage();
         }
     }
+
+    public void displayContents() {
+        for (Movies movies : availableMovies) {
+            System.out.println(movies);
+        }
+    }
 }

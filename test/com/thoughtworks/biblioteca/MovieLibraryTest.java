@@ -1,7 +1,11 @@
 package com.thoughtworks.biblioteca;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
@@ -91,4 +95,25 @@ public class MovieLibraryTest {
         assertEquals(movieLibrary1, movieLibrary2);
 
     }
+
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
+    @Before
+    public void setOutputStream() {
+        System.setOut(new PrintStream(outContent));
+    }
+
+    @Test
+    public void shouldReturnValidMovie() {
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        movieLibrary.displayContents();
+        assertEquals(String.format("%-34s %-34d %-34s %-34d\n", "Titanic", 1990, "James Cameron", 5), outContent.toString());
+    }
+    @After
+    public void cleanUpStreams() {
+        System.setOut(System.out);
+    }
+
 }
