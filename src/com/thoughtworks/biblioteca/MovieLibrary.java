@@ -50,4 +50,19 @@ public class MovieLibrary {
         }
 
     }
+
+    public void returnMovie(String name) {
+        ReturnBookMessage returnBookMessage;
+        Movies movies = new Movies(name, UNKNOWN_YEAR, UNKNOWN_DIRECTOR, UNKNOWN_RATING);
+        if (checkedOutMovies.contains(movies)) {
+            int index = checkedOutMovies.indexOf(movies);
+            availableMovies.add(checkedOutMovies.get(index));
+            checkedOutMovies.remove(movies);
+            returnBookMessage = new ReturnBookMessage(printer);
+            returnBookMessage.displayAvailableMessage();
+        } else {
+            returnBookMessage = new ReturnBookMessage(printer);
+            returnBookMessage.displayNotAvailableMessage();
+        }
+    }
 }
