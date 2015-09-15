@@ -54,5 +54,18 @@ public class MovieLibraryTest {
         assertEquals(movieLibrary1.hashCode(), movieLibrary2.hashCode());
     }
 
+    @Test
+    public void shouldReturnEqualHashCodeIfTwoMoviesListsAreDifferent() {
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        movies.add(new Movies("Inception", 2010, "Christopher Nolan", 9));
+        MovieLibrary movieLibrary1 = new MovieLibrary(movies);
+        ArrayList<Movies> movies1 = new ArrayList<Movies>();
+        movies1.add(new Movies("Titanicjk", 1990, "James Cameron", 5));
+        movies1.add(new Movies("Inceptioon1", 2010, "Christopher Nolan", 9));
+        MovieLibrary movieLibrary2 = new MovieLibrary(movies1);
+        assertNotEquals(movieLibrary1.hashCode(), movieLibrary2.hashCode());
+    }
+
 
 }
