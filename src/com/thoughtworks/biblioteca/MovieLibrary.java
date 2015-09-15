@@ -3,12 +3,12 @@ package com.thoughtworks.biblioteca;
 import java.util.ArrayList;
 
 public class MovieLibrary {
-    private ArrayList<Movies> movies;
-    public MovieLibrary(ArrayList<Movies> movies) {
-        this.movies = movies;
+    private ArrayList<Movies> AvailableMovies;
+    public MovieLibrary(ArrayList<Movies> AvailableMovies) {
+        this.AvailableMovies = AvailableMovies;
     }
 
-    public MovieLibrary getMovieLibrary() {
-        return this;
+    public ArrayList<Movies> getMovieLibrary() {
+        return AvailableMovies;
     }
 }
