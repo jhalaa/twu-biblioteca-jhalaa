@@ -8,7 +8,6 @@ public class MovieLibrary {
     private static final String UNKNOWN_DIRECTOR = null;
     private Printer printer = new Printer(System.out);
     private ArrayList<Movies> availableMovies = new ArrayList<Movies>();
-    private ArrayList<Movies> checkedOutMovies = new ArrayList<Movies>();
 
     public MovieLibrary(ArrayList<Movies> availableMovies) {
         this.availableMovies = availableMovies;
@@ -39,8 +38,6 @@ public class MovieLibrary {
         CheckoutMessage checkoutMessage;
         Movies movies = new Movies(name, UNKNOWN_YEAR, UNKNOWN_DIRECTOR, UNKNOWN_RATING);
         if (availableMovies.contains(movies)) {
-            int index = availableMovies.indexOf(movies);
-            checkedOutMovies.add(availableMovies.get(index));
             availableMovies.remove(movies);
             checkoutMessage = new CheckoutMessage(printer);
             checkoutMessage.printSuccessfulMessage();
@@ -49,21 +46,6 @@ public class MovieLibrary {
             checkoutMessage.printUnsuccessfulMessage();
         }
 
-    }
-
-    public void returnMovie(String name) {
-        ReturnBookMessage returnBookMessage;
-        Movies movies = new Movies(name, UNKNOWN_YEAR, UNKNOWN_DIRECTOR, UNKNOWN_RATING);
-        if (checkedOutMovies.contains(movies)) {
-            int index = checkedOutMovies.indexOf(movies);
-            availableMovies.add(checkedOutMovies.get(index));
-            checkedOutMovies.remove(movies);
-            returnBookMessage = new ReturnBookMessage(printer);
-            returnBookMessage.displayAvailableMessage();
-        } else {
-            returnBookMessage = new ReturnBookMessage(printer);
-            returnBookMessage.displayNotAvailableMessage();
-        }
     }
 
     public void displayContents() {

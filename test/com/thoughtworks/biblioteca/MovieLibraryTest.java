@@ -82,19 +82,6 @@ public class MovieLibraryTest {
         assertEquals(movieLibrary1, movieLibrary2);
     }
 
-    @Test
-    public void shouldValidateASuccessfulReturn() {
-        ArrayList<Movies> movies = new ArrayList<Movies>();
-        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
-        movies.add(new Movies("Inception", 2010, "Christopher Nolan", 9));
-        MovieLibrary movieLibrary1 = new MovieLibrary(movies);
-        MovieLibrary movieLibrary2 = new MovieLibrary(movies);
-        movieLibrary1.checkout("Inception");
-        movieLibrary1.returnMovie("Inception");
-        assertEquals(movieLibrary1, movieLibrary2);
-
-    }
-
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
