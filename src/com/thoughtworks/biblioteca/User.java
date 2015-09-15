@@ -1,13 +1,11 @@
 package com.thoughtworks.biblioteca;
 
 public class User {
-    private String libraryNumber;
+    public String libraryNumber;
+    public String password;
 
-    public User(String libraryNumber) {
+    public User(String libraryNumber ,String password) {
         this.libraryNumber = libraryNumber;
-    }
-
-    public String getLibraryNumber() {
-        return libraryNumber;
+        this.password = password;
     }
 }
