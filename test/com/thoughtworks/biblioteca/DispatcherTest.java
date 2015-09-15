@@ -27,7 +27,10 @@ public class DispatcherTest {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         BookLibrary bookLibrary = new BookLibrary(books);
-        Dispatcher dispatcher = new Dispatcher(bookLibrary,scanner);
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary,scanner);
         dispatcher.run();
         assertEquals(String.format("%-34s %-34s %-34d\n","Harry Potter","JK Rowling",1993), outputStream.toString());
     }
@@ -44,7 +47,10 @@ public class DispatcherTest {
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
         BookLibrary bookLibrary = new BookLibrary(books);
-        Dispatcher dispatcher = new Dispatcher(bookLibrary,scanner);
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary,scanner);
         dispatcher.run();
         assertEquals("Thank you! Enjoy the book", outputStream.toString());
     }
@@ -61,7 +67,10 @@ public class DispatcherTest {
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
         BookLibrary bookLibrary = new BookLibrary(books);
-        Dispatcher dispatcher = new Dispatcher(bookLibrary,scanner);
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary,scanner);
         dispatcher.run();
         assertEquals("That book is not available", outputStream.toString());
     }
@@ -79,7 +88,10 @@ public class DispatcherTest {
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
         BookLibrary bookLibrary = new BookLibrary(books);
         bookLibrary.checkOutBook("Harry Potter");
-        Dispatcher dispatcher = new Dispatcher(bookLibrary,scanner);
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary,scanner);
         dispatcher.run();
         assertEquals("Thank you! Enjoy the bookThank you for returning the book.", outputStream.toString());
     }
@@ -96,7 +108,10 @@ public class DispatcherTest {
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
         BookLibrary bookLibrary = new BookLibrary(books);
         bookLibrary.checkOutBook("Harry Potter");
-        Dispatcher dispatcher = new Dispatcher(bookLibrary,scanner);
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary,scanner);
         dispatcher.run();
         assertEquals("Thank you! Enjoy the bookThat is not a valid book to return.", outputStream.toString());
     }
@@ -113,7 +128,10 @@ public class DispatcherTest {
         books.add(new Book("Harry Potter", "JK Rowling", 1993));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
         BookLibrary bookLibrary = new BookLibrary(books);
-        Dispatcher dispatcher = new Dispatcher(bookLibrary,scanner);
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary,scanner);
         dispatcher.run();
         assertEquals("Invalid menu option", outputStream.toString());
     }
