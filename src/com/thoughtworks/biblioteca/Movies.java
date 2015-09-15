@@ -13,22 +13,6 @@ public class Movies {
         this.movieRating = movieRating;
     }
 
-    public String getMovieName() {
-        return movieName;
-    }
-
-    public int getMovieYear() {
-        return movieYear;
-    }
-
-    public String getMovieDiector() {
-        return movieDirector;
-    }
-
-    public int getMovieRating() {
-        return movieRating;
-    }
-
     @Override
     public String toString() {
         return String.format("%-34s %-34d %-34s %-34d", movieName, movieYear, movieDirector, movieRating);
