@@ -14,7 +14,7 @@ public class Printer {
         try {
             outputStream.write(message.getBytes());
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("wdd");
         }
     }
 }
