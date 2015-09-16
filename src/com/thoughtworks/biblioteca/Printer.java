@@ -12,9 +12,10 @@ public class Printer {
 
     public void printMessage(String message) {
         try {
+            message = message + "\n";
             outputStream.write(message.getBytes());
         } catch (IOException e) {
-            System.out.println("wdd");
+            System.out.println("IO Exception");
         }
     }
 }

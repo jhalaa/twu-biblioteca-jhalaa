@@ -71,7 +71,7 @@ public class DispatcherTest {
         MovieLibrary movieLibrary = new MovieLibrary(movies);
         Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary,scanner);
         dispatcher.run();
-        assertEquals("Thank you! Enjoy the book", outputStream.toString());
+        assertEquals("Thank you! Enjoy the book\n", outputStream.toString());
     }
 
     @Test
@@ -91,7 +91,7 @@ public class DispatcherTest {
         MovieLibrary movieLibrary = new MovieLibrary(movies);
         Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary,scanner);
         dispatcher.run();
-        assertEquals("That book is not available", outputStream.toString());
+        assertEquals("That book is not available\n", outputStream.toString());
     }
 
     @Test
@@ -112,7 +112,7 @@ public class DispatcherTest {
         MovieLibrary movieLibrary = new MovieLibrary(movies);
         Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary,scanner);
         dispatcher.run();
-        assertEquals("Thank you! Enjoy the bookThank you for returning the book.", outputStream.toString());
+        assertEquals("Thank you! Enjoy the book\nThank you for returning the book.\n", outputStream.toString());
     }
     @Test
     public void shouldReturnMessageWhenInValidBookIsReturnedAndOptionIsFour() {
@@ -132,7 +132,7 @@ public class DispatcherTest {
         MovieLibrary movieLibrary = new MovieLibrary(movies);
         Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary,scanner);
         dispatcher.run();
-        assertEquals("Thank you! Enjoy the bookThat is not a valid book to return.", outputStream.toString());
+        assertEquals("Thank you! Enjoy the book\nThat is not a valid book to return.\n", outputStream.toString());
     }
 
     @Test
@@ -152,7 +152,7 @@ public class DispatcherTest {
         MovieLibrary movieLibrary = new MovieLibrary(movies);
         Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary,scanner);
         dispatcher.run();
-        assertEquals("Invalid menu option", outputStream.toString());
+        assertEquals("Invalid menu option\n", outputStream.toString());
     }
 
     @Rule

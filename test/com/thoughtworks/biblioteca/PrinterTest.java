@@ -29,7 +29,7 @@ public class PrinterTest {
     public void shouldPrintTheMessageItIsPassedWith() {
         Printer printer = new Printer(System.out);
         printer.printMessage("jhalaa");
-        assertEquals("jhalaa", outContent.toString());
+        assertEquals("jhalaa\n", outContent.toString());
     }
 
     @After
@@ -41,10 +41,10 @@ public class PrinterTest {
     public void shouldTest() throws IOException {
         OutputStream mockOutputStream = mock(OutputStream.class);
         String message = "message";
-        doThrow(new IOException()).when(mockOutputStream).write(message.getBytes());
+        doThrow(new IOException()).when(mockOutputStream).write((message + "\n").getBytes());
         Printer printer = new Printer(mockOutputStream);
         printer.printMessage(message);
 
-        assertEquals("wdd\n", outContent.toString());
+        assertEquals("IO Exception\n", outContent.toString());
     }
 }
