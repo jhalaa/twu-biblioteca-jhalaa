@@ -8,13 +8,16 @@ public class BibliotecaApplication {
 
     private ConfigurationOfBooks configurationOfBooks = new ConfigurationOfBooks();
     private ConfigurationOfMovies configurationOfMovies = new ConfigurationOfMovies();
-    private ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
     private BookLibrary bookLibrary = configurationOfBooks.start();
     private MovieLibrary movieLibrary = configurationOfMovies.start();
-    private ArrayList<User> users = configurationOfUsers.returnUserList();
     private Printer printer = new Printer(System.out);
     private Menu menu = new Menu(printer);
-    private Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, new Scanner(System.in));
+    private ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
+
+    private Scanner scanner = new Scanner(System.in);
+    private Login login = new Login(configurationOfUsers.returnUserList(),scanner);
+    private Validator validator= new Validator(login);
+    private Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, new Scanner(System.in),validator);
 
     public void start() {
         menu.displayMenuOption();
