@@ -76,13 +76,25 @@ public class Dispatcher {
                 user = INVALID_USER;
             }
             else if (input.equals("8")) {
-                if(!(user.isLibraian())) {
-                    System.out.println("PERMISSION DENIED");
+                if(user.equals(INVALID_USER)) {
+                    System.out.println("Enter login credentials");
+                    if (validator.callLogin()) {
+                        user = validator.myUser();
+                        if (!(user.isLibraian())) {
+                            System.out.println("PERMISSION DENIED");
+                        } else {
+                            bookLibrary.printStatus();
+                        }
+                    }
                 }
-                else
-                {
-                    bookLibrary.printStatus();
+                else {
+                    if (!(user.isLibraian())) {
+                        System.out.println("PERMISSION DENIED");
+                    } else {
+                        bookLibrary.printStatus();
+                    }
                 }
+
             }
             else {
                 InvalidMenuOption invalidMenuOption = new InvalidMenuOption(printer);
