@@ -36,5 +36,6 @@ public class User {
     }
 
     public void getMyDetails() {
+        System.out.println(name +" "+ email+" " + phoneNumber);
     }
 }

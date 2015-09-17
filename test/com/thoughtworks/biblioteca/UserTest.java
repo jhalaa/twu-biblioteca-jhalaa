@@ -2,6 +2,9 @@ package com.thoughtworks.biblioteca;
 
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import static org.junit.Assert.*;
 
 public class UserTest {
@@ -44,5 +47,15 @@ public class UserTest {
     public void shouldReturnFalseIfNotLibrarian() {
         User user1 = new User("123-4537","jhalaa","0","0","0");
         assertFalse(user1.isLibraian());
+    }
+
+    @Test
+    public void shouldGetValidUserDetails() {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setOut(printStream);
+        User user1 = new User("123-4537","jhalaa","jhalaa","jhalaachinoy@gmail.com","9535243238");
+        user1.getMyDetails();
+        assertEquals("jhalaa jhalaachinoy@gmail.com 9535243238\n",outputStream.toString());
     }
 }
