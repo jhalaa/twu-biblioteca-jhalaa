@@ -22,8 +22,9 @@ public class BibliotecaApplication {
     private Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, new Scanner(System.in), validator, user);
 
     public void start() {
-        menu.displayMenuOption();
+
         while (true) {
+            menu.displayMenuOption();
             dispatcher.run();
         }
     }

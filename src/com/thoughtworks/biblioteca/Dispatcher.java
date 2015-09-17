@@ -37,23 +37,33 @@ public class Dispatcher {
                 if(user.equals(INVALID_USER)) {
                     System.out.println("Enter login credentials");
                     if (validator.callLogin()) {
-                        user=validator.myUser();
+                        user = validator.myUser();
+                        System.out.println("Enter book name");
+                        String bookName = scanner.nextLine();
+                        bookLibrary.checkOutBook(bookName, user);
+                    }
+                }
+                    else {
                         System.out.println("Enter book name");
                         String bookName = scanner.nextLine();
                         bookLibrary.checkOutBook(bookName,user);
-                    }
                 }
             }
             else if (input.equals("4")) {
                 if(user.equals(INVALID_USER)) {
                     System.out.println("Enter login credentials");
                     if (validator.callLogin()) {
-                        user=validator.myUser();
+                        user = validator.myUser();
                         System.out.println("enter book name");
                         String bookName = scanner.nextLine();
-                        bookLibrary.returnBook(bookName,user);
+                        bookLibrary.returnBook(bookName, user);
                     }
                 }
+                    else {
+                        System.out.println("enter book name");
+                        String bookName = scanner.nextLine();
+                        bookLibrary.returnBook(bookName, user);
+                    }
             }
             else if (input.equals("5")) {
                 String name = scanner.nextLine();
