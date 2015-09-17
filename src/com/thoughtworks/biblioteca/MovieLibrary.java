@@ -40,10 +40,10 @@ public class MovieLibrary {
         if (availableMovies.contains(movies)) {
             availableMovies.remove(movies);
             checkoutMessage = new CheckoutMessage(printer);
-            checkoutMessage.printSuccessfulBookCheckoutMessage();
+            checkoutMessage.printSuccessfulMovieCheckoutMessage();
         } else {
             checkoutMessage = new CheckoutMessage(printer);
-            checkoutMessage.printUnsuccessfulBookCheckoutMessage();
+            checkoutMessage.printUnsuccessfulMovieCheckoutMessage();
         }
 
     }

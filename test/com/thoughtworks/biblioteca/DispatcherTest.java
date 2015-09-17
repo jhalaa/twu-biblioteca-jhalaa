@@ -76,7 +76,7 @@ public class DispatcherTest {
         MovieLibrary movieLibrary = new MovieLibrary(movies);
         Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, null,user);
         dispatcher.run();
-        assertEquals("Thank you! Enjoy the book\n", outputStream.toString());
+        assertEquals("Thank you! Enjoy the movie\n", outputStream.toString());
     }
 
     @Test
