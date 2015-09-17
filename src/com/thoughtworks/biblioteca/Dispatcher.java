@@ -4,19 +4,23 @@ import java.util.Scanner;
 
 import static java.lang.System.exit;
 
+
 //delegates the functionality based on the desicion to be taken.
 public class Dispatcher {
-    Scanner scanner ;
-    BookLibrary bookLibrary;
-    MovieLibrary movieLibrary;
-    Printer printer = new Printer(System.out);
-    Validator validator;
+    private static final User INVALID_USER = new User("0","0") ;
+    private Scanner scanner ;
+    private BookLibrary bookLibrary;
+    private MovieLibrary movieLibrary;
+    private Printer printer = new Printer(System.out);
+    private Validator validator;
+    private User user;
 
-    public Dispatcher(MovieLibrary movieLibrary, BookLibrary bookLibrary, Scanner scanner,Validator validator) {
+    public Dispatcher(MovieLibrary movieLibrary, BookLibrary bookLibrary, Scanner scanner,Validator validator,User user) {
         this.movieLibrary = movieLibrary;
         this.bookLibrary = bookLibrary;
         this.scanner = scanner;
         this.validator = validator;
+        this.user = user;
     }
 
     public void run() {
@@ -30,19 +34,23 @@ public class Dispatcher {
                exit(0);
             }
             else if (input.equals("3")) {
-                System.out.println("Enter login credentials");
-                if(validator.callLogin()) {
-                    System.out.println("Enter book name");
-                    String bookName = scanner.nextLine();
-                    bookLibrary.checkOutBook(bookName);
+                if(user.equals(INVALID_USER)) {
+                    System.out.println("Enter login credentials");
+                    if (validator.callLogin()) {
+                        System.out.println("Enter book name");
+                        String bookName = scanner.nextLine();
+                        bookLibrary.checkOutBook(bookName);
+                    }
                 }
             }
             else if (input.equals("4")) {
-                System.out.println("Enter login credentials");
-                if (validator.callLogin()) {
-                    System.out.println("enter book name");
-                    String bookName = scanner.nextLine();
-                    bookLibrary.returnBook(bookName);
+                if(user.equals(INVALID_USER)) {
+                    System.out.println("Enter login credentials");
+                    if (validator.callLogin()) {
+                        System.out.println("enter book name");
+                        String bookName = scanner.nextLine();
+                        bookLibrary.returnBook(bookName);
+                    }
                 }
             }
             else if (input.equals("5")) {
@@ -51,6 +59,9 @@ public class Dispatcher {
             }
             else if (input.equals("6")) {
                 movieLibrary.displayContents();
+            }
+            else if (input.equals("7")) {
+                user = INVALID_USER;
             }
             else {
                 InvalidMenuOption invalidMenuOption = new InvalidMenuOption(printer);

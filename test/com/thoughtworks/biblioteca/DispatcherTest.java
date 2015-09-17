@@ -15,7 +15,6 @@ import static org.junit.Assert.assertEquals;
 public class DispatcherTest {
 
 
-
     @Test
     public void shouldDisplayBookLibraryWhenOptionIsOne() {
         ByteArrayInputStream inputStream = new ByteArrayInputStream("1".getBytes());
@@ -31,9 +30,10 @@ public class DispatcherTest {
         movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
         MovieLibrary movieLibrary = new MovieLibrary(movies);
         ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
-        Login login = new Login(configurationOfUsers.returnUserList(),scanner);
+        Login login = new Login(configurationOfUsers.returnUserList(), scanner);
         Validator validator = new Validator(login);
-        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary,scanner,validator);
+        User user = new User("0", "0");
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
         dispatcher.run();
         assertEquals(String.format("%-34s %-34s %-34d\n", "Harry Potter", "JK Rowling", 1993), outputStream.toString());
     }
@@ -52,9 +52,10 @@ public class DispatcherTest {
         ArrayList<Movies> movies = new ArrayList<Movies>();
         movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
         MovieLibrary movieLibrary = new MovieLibrary(movies);
-        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary,scanner,null);
+        User user = new User("0", "0");
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, null,user);
         dispatcher.run();
-        assertEquals(String.format("%-34s %-34d %-34s %-34d\n","Titanic",1990,"James Cameron",5), outputStream.toString());
+        assertEquals(String.format("%-34s %-34d %-34s %-34d\n", "Titanic", 1990, "James Cameron", 5), outputStream.toString());
     }
 
     @Test
@@ -73,9 +74,10 @@ public class DispatcherTest {
         movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
         MovieLibrary movieLibrary = new MovieLibrary(movies);
         ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
-        Login login = new Login(configurationOfUsers.returnUserList(),scanner);
+        Login login = new Login(configurationOfUsers.returnUserList(), scanner);
         Validator validator = new Validator(login);
-        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary,scanner,validator);
+        User user = new User("0", "0");
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator, user);
         dispatcher.run();
         assertEquals("Enter login credentials\nEnter book name\nThank you! Enjoy the book\n", outputStream.toString());
     }
@@ -96,9 +98,10 @@ public class DispatcherTest {
         movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
         MovieLibrary movieLibrary = new MovieLibrary(movies);
         ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
-        Login login = new Login(configurationOfUsers.returnUserList(),scanner);
+        Login login = new Login(configurationOfUsers.returnUserList(), scanner);
         Validator validator = new Validator(login);
-        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary,scanner,validator);
+        User user = new User("0", "0");
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
         dispatcher.run();
         assertEquals("Enter login credentials\nEnter book name\nThat book is not available\n", outputStream.toString());
     }
@@ -120,12 +123,14 @@ public class DispatcherTest {
         movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
         MovieLibrary movieLibrary = new MovieLibrary(movies);
         ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
-        Login login = new Login(configurationOfUsers.returnUserList(),scanner);
+        Login login = new Login(configurationOfUsers.returnUserList(), scanner);
         Validator validator = new Validator(login);
-        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary,scanner,validator);
+        User user = new User("0", "0");
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
         dispatcher.run();
         assertEquals("Thank you! Enjoy the book\nEnter login credentials\nenter book name\nThank you for returning the book.\n", outputStream.toString());
     }
+
     @Test
     public void shouldReturnMessageWhenInValidBookIsReturnedAndOptionIsFour() {
         ByteArrayInputStream inputStream = new ByteArrayInputStream("4\n123-4567\njhalaa\nHarry\n".getBytes());
@@ -143,9 +148,10 @@ public class DispatcherTest {
         movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
         MovieLibrary movieLibrary = new MovieLibrary(movies);
         ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
-        Login login = new Login(configurationOfUsers.returnUserList(),scanner);
+        Login login = new Login(configurationOfUsers.returnUserList(), scanner);
         Validator validator = new Validator(login);
-        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary,scanner,validator);
+        User user = new User("0", "0");
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
         dispatcher.run();
         assertEquals("Thank you! Enjoy the book\nEnter login credentials\nenter book name\nThat is not a valid book to return.\n", outputStream.toString());
     }
@@ -166,9 +172,10 @@ public class DispatcherTest {
         movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
         MovieLibrary movieLibrary = new MovieLibrary(movies);
         ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
-        Login login = new Login(configurationOfUsers.returnUserList(),scanner);
+        Login login = new Login(configurationOfUsers.returnUserList(), scanner);
         Validator validator = new Validator(login);
-        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary,scanner,validator);
+        User user = new User("0", "0");
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
         dispatcher.run();
         assertEquals("Invalid menu option\n", outputStream.toString());
     }
@@ -178,8 +185,8 @@ public class DispatcherTest {
 
     @Test
     public void shouldExitWhenOptionSelectedIsTwo() {
-            exit.expectSystemExit();
-            System.exit(0);
+        exit.expectSystemExit();
+        System.exit(0);
     }
 
 }
