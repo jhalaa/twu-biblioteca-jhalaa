@@ -29,4 +29,11 @@ public class CheckoutMessageTest {
         checkoutMessage.printSuccessfulMovieCheckoutMessage();
         verify(printer).printMessage("Thank you! Enjoy the movie");
     }
+    @Test
+    public void shouldCallMyPrinterMethodOnUnsuccessfulCheckoutOfMovies() {
+        Printer printer = mock(Printer.class);
+        CheckoutMessage checkoutMessage = new CheckoutMessage(printer);
+        checkoutMessage.printUnsuccessfulMovieCheckoutMessage();
+        verify(printer).printMessage("That movie is not available");
+    }
 }

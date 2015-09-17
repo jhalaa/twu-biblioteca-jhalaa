@@ -19,4 +19,8 @@ public class CheckoutMessage {
     public void printSuccessfulMovieCheckoutMessage() {
         printer.printMessage("Thank you! Enjoy the movie");
     }
+
+    public void printUnsuccessfulMovieCheckoutMessage() {
+        printer.printMessage("That movie is not available");
+    }
 }
