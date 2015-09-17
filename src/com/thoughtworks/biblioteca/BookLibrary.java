@@ -10,7 +10,7 @@ public class BookLibrary {
     private static final String UNKNOWN_AUTHOR = null;
     private static final int UNKNOWN_YEAR = 0;
     private Printer printer = new Printer(System.out);
-    private User user = new User("0","0");
+    private User user = new User("0","0","0","0","0");
 
     BookLibrary(ArrayList<Book> availableBooks) {
         this.availableBooks = availableBooks;

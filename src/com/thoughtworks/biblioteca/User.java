@@ -1,17 +1,12 @@
 package com.thoughtworks.biblioteca;
 
 public class User {
-    private static final User LIBRARIAN =new User("123-4567","jhalaa") ;
+    private static final User LIBRARIAN =new User("123-4567","jhalaa","jhalaa","jhalaachinoy@gmail.com","9535243238") ;
     private String libraryNumber;
     private String password;
     private String name;
     private String email;
     private String phoneNumber;
-
-    public User(String libraryNumber ,String password) {
-        this.libraryNumber = libraryNumber;
-        this.password = password;
-    }
 
     public User(String libraryNumber, String password, String name, String email, String phoneNumber) {
         this.libraryNumber = libraryNumber;
@@ -38,5 +33,8 @@ public class User {
     @Override
     public String toString() {
         return libraryNumber;
+    }
+
+    public void getMyDetails() {
     }
 }

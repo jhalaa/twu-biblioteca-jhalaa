@@ -14,12 +14,12 @@ public class LoginTest {
     public void shouldValidateAValidUser() {
         ArrayList<User> users = new ArrayList<User>();
         Scanner scanner = new Scanner(System.in);
-        users.add(new User("123-4567","jhalaa"));
-        users.add(new User("123-4577","miffy"));
-        users.add(new User("122-4517","xyz"));
-        users.add(new User("123-2227","jksx"));
+        users.add(new User("123-4567","jhalaa","jhalaa","jhalaachinoy@gmail.com","9535243238"));
+        users.add(new User("123-4577","miffy","sophia","sopiag@gmail.com","9654265436"));
+        users.add(new User("222-2222","got","jon Snow","jonsnow@gmail.com","3456745676"));
+        users.add(new User("333-3333","pll","Alison","alisond@gmail.com","5695369770"));
         Login login = new Login(users,scanner);
-        User user1 = new User("123-4567", "jhalaa");
+        User user1 = new User("123-4567","jhalaa","jhalaa","jhalaachinoy@gmail.com","9535243238");
         assertEquals(login.validateUser(user1), user1);
     }
 
@@ -29,13 +29,13 @@ public class LoginTest {
     public void shouldInvalidateAnInvalidUser() {
         ArrayList<User> users = new ArrayList<User>();
         Scanner scanner = new Scanner(System.in);
-        users.add(new User("123-4567","jhalaa"));
-        users.add(new User("123-4577","miffy"));
-        users.add(new User("122-4517","xyz"));
-        users.add(new User("123-2227","jksx"));
+        users.add(new User("123-4567","jhalaa","jhalaa","jhalaachinoy@gmail.com","9535243238"));
+        users.add(new User("123-4577","miffy","sophia","sopiag@gmail.com","9654265436"));
+        users.add(new User("222-2222","got","jon Snow","jonsnow@gmail.com","3456745676"));
+        users.add(new User("333-3333","pll","Alison","alisond@gmail.com","5695369770"));
         Login login = new Login(users,scanner);
-        User user1 = new User("123-4568", "jhalaa");
-        User user2 = new User("0","0");
+        User user1 = new User("123-4568", "jhalaa","jhalaa","jhalaachinoy@gmail.com","9535243238");
+        User user2 = new User("0","0","0","0","0");
         assertEquals(login.validateUser(user1),user2);
     }
 
@@ -44,13 +44,13 @@ public class LoginTest {
         String input = "jhbj\nklds\n";
         ByteArrayInputStream inputStream = new ByteArrayInputStream(input.getBytes());
         ArrayList<User> users = new ArrayList<User>();
-        users.add(new User("123-4567", "jhalaa"));
-        users.add(new User("123-4577", "miffy"));
-        users.add(new User("122-4517", "xyz"));
-        users.add(new User("123-2227", "jksx"));
+        users.add(new User("123-4567","jhalaa","jhalaa","jhalaachinoy@gmail.com","9535243238"));
+        users.add(new User("123-4577","miffy","sophia","sopiag@gmail.com","9654265436"));
+        users.add(new User("222-2222","got","jon Snow","jonsnow@gmail.com","3456745676"));
+        users.add(new User("333-3333","pll","Alison","alisond@gmail.com","5695369770"));
         Login login = new Login(users,new Scanner(inputStream));
         User user1 = login.acceptUserInput();
-        assertEquals(new User("jhbj", "klds"), user1);
+        assertEquals(new User("jhbj", "klds","0","0","0"), user1);
     }
 
 

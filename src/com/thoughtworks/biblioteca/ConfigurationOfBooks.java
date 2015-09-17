@@ -6,11 +6,14 @@ import java.util.ArrayList;
 public class ConfigurationOfBooks {
     private static final String INVALID_LIBRARY_NUMBER ="0" ;
     private static final String INVALID_PASSWORD ="0" ;
+    private static final String UNKNOWN_NAME = "0";
+    private static final String UNKNOWN_EMAIL = "0";
+    private static final String UNKNOWN_PHONENUMBER = "0" ;
     private Welcome welcome;
     private ArrayList<Book> books;
     private BookLibrary bookLibrary;
     private Printer printer = new Printer(System.out);
-    private User user = new User(INVALID_LIBRARY_NUMBER,INVALID_PASSWORD);
+    private User user = new User(INVALID_LIBRARY_NUMBER,INVALID_PASSWORD,UNKNOWN_NAME,UNKNOWN_EMAIL,UNKNOWN_PHONENUMBER);
 
     public BookLibrary start() {
         welcome = new Welcome("Hello BookLibrary lover!Welcome to biblioteca",printer);

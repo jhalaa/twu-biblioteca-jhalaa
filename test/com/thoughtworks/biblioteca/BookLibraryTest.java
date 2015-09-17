@@ -23,7 +23,7 @@ public class BookLibraryTest {
     @Test
     public void shouldReturnValidBook() {
         ArrayList<Book> books = new ArrayList<Book>();
-        User user = new User("123","123");
+        User user = new User("123","123","0","0","0");
         books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
         BookLibrary bookLibrary = new BookLibrary(books);
         bookLibrary.displayContents();
@@ -34,7 +34,7 @@ public class BookLibraryTest {
     public void shouldReturnValidBooks() {
         ArrayList<Book> books = new ArrayList<Book>();
         BookLibrary bookLibrary = new BookLibrary(books);
-        User user = new User("123","123");
+        User user = new User("123","123","0","0","0");
         books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
         bookLibrary.displayContents();
@@ -50,7 +50,7 @@ public class BookLibraryTest {
     public void shouldReturnEqualIfTheBookListsAreEqual() {
         ArrayList<Book> books = new ArrayList<Book>();
         BookLibrary bookLibrary1 = new BookLibrary(books);
-        User user = new User("123","123");
+        User user = new User("123","123","0","0","0");
         books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
         BookLibrary bookLibrary2 = new BookLibrary(books);
@@ -62,7 +62,7 @@ public class BookLibraryTest {
     @Test
     public void shouldReturnNotEqualIfTheBookListsAreUnequal() {
         ArrayList<Book> books = new ArrayList<Book>();
-        User user = new User("123","123");
+        User user = new User("123","123","0","0","0");
         books.add(new Book("Harry Potter", "JK Rowling", 1995,user));
         books.add(new Book("Da Vinci Code", "Dan Brown2", 2007,user));
         BookLibrary bookLibrary1 = new BookLibrary(books);
@@ -76,7 +76,7 @@ public class BookLibraryTest {
     @Test
     public void shouldReturnEqualHashCodeIfTwoBookListsAreSame() {
         ArrayList<Book> books = new ArrayList<Book>();
-        User user = new User("123","123");
+        User user = new User("123","123","0","0","0");
         books.add(new Book("Harry Potter", "JK Rowling", 1995,user));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
         BookLibrary bookLibrary1 = new BookLibrary(books);
@@ -90,7 +90,7 @@ public class BookLibraryTest {
     @Test
     public void shouldNotReturnEqualHashCodeIfTwoBookListsAreDifferent() {
         ArrayList<Book> books = new ArrayList<Book>();
-        User user = new User("123","123");
+        User user = new User("123","123","0","0","0");
         books.add(new Book("Harry Potter", "JK Rowling", 1995,user));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
         BookLibrary bookLibrary1 = new BookLibrary(books);
@@ -104,7 +104,7 @@ public class BookLibraryTest {
     @Test
     public void shouldReturnAValidBookAfterCheckout() {
         ArrayList<Book> books = new ArrayList<Book>();
-        User user = new User("123","123");
+        User user = new User("123","123","0","0","0");
         books.add(new Book("Harry Potter", "JK Rowling", 1995,user));
         BookLibrary bookLibrary1 = new BookLibrary(books);
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
@@ -117,7 +117,7 @@ public class BookLibraryTest {
     public void shouldValidateASuccessfulReturn()
     {
         ArrayList<Book> books = new ArrayList<Book>();
-        User user = new User("123","123");
+        User user = new User("123","123","0","0","0");
         books.add(new Book("Harry Potter", "JK Rowling", 1995,user));
         books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
         BookLibrary bookLibrary1 = new BookLibrary(books);

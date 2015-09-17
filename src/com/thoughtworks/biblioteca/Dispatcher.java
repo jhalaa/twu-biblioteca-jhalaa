@@ -7,7 +7,7 @@ import static java.lang.System.exit;
 
 //delegates the functionality based on the desicion to be taken.
 public class Dispatcher {
-    private static final User INVALID_USER = new User("0","0") ;
+    private static final User INVALID_USER = new User("0","0","0","0","0") ;
     private Scanner scanner ;
     private BookLibrary bookLibrary;
     private MovieLibrary movieLibrary;
@@ -96,6 +96,9 @@ public class Dispatcher {
                 }
 
             }
+            else if (input.equals("9")){
+            user.getMyDetails();
+        }
             else {
                 InvalidMenuOption invalidMenuOption = new InvalidMenuOption(printer);
                 invalidMenuOption.displayMessage();

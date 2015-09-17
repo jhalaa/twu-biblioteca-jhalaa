@@ -8,41 +8,41 @@ public class UserTest {
 
     @Test
     public void shouldBeDifferentIfTheyHaveSameUserNameAndDifferentPassword() {
-        User user1 = new User("123-1234","xhy");
-        User user2 = new User("123-1234","xyz");
+        User user1 = new User("123-1234","xhy","0","0","0");
+        User user2 = new User("123-1234","xyz","0","0","0");
         assertNotEquals(user1, user2);
     }
 
     @Test
     public void shouldBeDifferentIfTheyHaveDifferentUserNameAndSamePassword() {
-        User user1 = new User("123-1334","xyz");
-        User user2 = new User("123-1234","xyz");
+        User user1 = new User("123-1334","xyz","0","0","0");
+        User user2 = new User("123-1234","xyz","0","0","0");
         assertNotEquals(user1, user2);
     }
 
     @Test
     public void shouldBeDifferentIfTheyHaveDifferentUserNameAndDifferentPassword() {
-        User user1 = new User("123-1334","xhz");
-        User user2 = new User("123-1234","xyz");
+        User user1 = new User("123-1334","xhz","0","0","0");
+        User user2 = new User("123-1234","xyz","0","0","0");
         assertNotEquals(user1, user2);
     }
 
     @Test
     public void shouldBeSameIfTheyHaveSameUserNameAndPassword() {
-        User user1 = new User("123-1234","xyz");
-        User user2 = new User("123-1234","xyz");
+        User user1 = new User("123-1234","xyz","0","0","0");
+        User user2 = new User("123-1234","xyz","0","0","0");
         assertEquals(user1, user2);
     }
 
     @Test
     public void shouldReturnTrueIfLibrarian() {
-        User user1 = new User("123-4567","jhalaa");
+        User user1 = new User("123-4567","jhalaa","0","0","0");
         assertTrue(user1.isLibraian());
     }
 
     @Test
     public void shouldReturnFalseIfNotLibrarian() {
-        User user1 = new User("123-4537","jhalaa");
+        User user1 = new User("123-4537","jhalaa","0","0","0");
         assertFalse(user1.isLibraian());
     }
 }
