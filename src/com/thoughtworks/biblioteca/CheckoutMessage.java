@@ -8,11 +8,15 @@ public class CheckoutMessage {
         this.printer = printer;
     }
 
-    public void printSuccessfulMessage() {
+    public void printSuccessfulBookCheckoutMessage() {
         printer.printMessage("Thank you! Enjoy the book");
     }
 
-    public void printUnsuccessfulMessage() {
+    public void printUnsuccessfulBookCheckoutMessage() {
         printer.printMessage("That book is not available");
+    }
+
+    public void printSuccessfulMovieCheckoutMessage() {
+        printer.printMessage("Thank you! Enjoy the movie");
     }
 }

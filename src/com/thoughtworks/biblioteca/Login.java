@@ -9,8 +9,8 @@ public class Login {
     private static final String INVALID_LIBRARY_NAME = "0" ;
     private final ArrayList<User> users;
     Scanner scanner;
-    String libraryNumber;
-    String password;
+    String libraryNumber="0";
+    String password="0";
 
     public Login(ArrayList<User> users,Scanner scanner) {
         this.users = users;

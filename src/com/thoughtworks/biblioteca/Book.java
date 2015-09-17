@@ -1,16 +1,20 @@
 package com.thoughtworks.biblioteca;
 
 
+import java.awt.*;
+
 public class Book {
 
     private String bookName;
     private String author;
     private int year;
+    private User myOwner;
 
-    public Book(String bookName, String author, int year) {
+    public Book(String bookName, String author, int year ,User user) {
         this.bookName = bookName;
         this.author = author;
         this.year = year;
+        this.myOwner = user;
     }
 
     @Override
@@ -34,4 +38,11 @@ public class Book {
         return hash+year;
     }
 
+    public void setUser(User user) {
+        this.myOwner = user;
+    }
+
+    public User getUser() {
+        return myOwner;
+    }
 }

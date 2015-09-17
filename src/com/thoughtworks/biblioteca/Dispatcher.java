@@ -37,9 +37,10 @@ public class Dispatcher {
                 if(user.equals(INVALID_USER)) {
                     System.out.println("Enter login credentials");
                     if (validator.callLogin()) {
+                        user=validator.myUser();
                         System.out.println("Enter book name");
                         String bookName = scanner.nextLine();
-                        bookLibrary.checkOutBook(bookName);
+                        bookLibrary.checkOutBook(bookName,user);
                     }
                 }
             }
@@ -47,9 +48,10 @@ public class Dispatcher {
                 if(user.equals(INVALID_USER)) {
                     System.out.println("Enter login credentials");
                     if (validator.callLogin()) {
+                        user=validator.myUser();
                         System.out.println("enter book name");
                         String bookName = scanner.nextLine();
-                        bookLibrary.returnBook(bookName);
+                        bookLibrary.returnBook(bookName,user);
                     }
                 }
             }

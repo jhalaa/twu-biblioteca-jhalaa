@@ -8,18 +8,25 @@ import static org.mockito.Mockito.verify;
 public class CheckoutMessageTest {
 
     @Test
-    public void shouldCallMyPrinterMethodWithTrue() {
+    public void shouldCallMyPrinterMethodOnSuccessfulCheckoutOfBooks() {
         Printer printer = mock(Printer.class);
         CheckoutMessage checkoutMessage = new CheckoutMessage(printer);
-        checkoutMessage.printSuccessfulMessage();
+        checkoutMessage.printSuccessfulBookCheckoutMessage();
         verify(printer).printMessage("Thank you! Enjoy the book");
     }
 
     @Test
-    public void shouldCallMyPrinterMethodWithFalse() {
+    public void shouldCallMyPrinterMethodOnUnsuccessfulCheckoutOfBooks() {
         Printer printer = mock(Printer.class);
         CheckoutMessage checkoutMessage = new CheckoutMessage(printer);
-        checkoutMessage.printUnsuccessfulMessage();
+        checkoutMessage.printUnsuccessfulBookCheckoutMessage();
         verify(printer).printMessage("That book is not available");
+    }
+    @Test
+    public void shouldCallMyPrinterMethodOnSuccessfulCheckoutOfMovies() {
+        Printer printer = mock(Printer.class);
+        CheckoutMessage checkoutMessage = new CheckoutMessage(printer);
+        checkoutMessage.printSuccessfulMovieCheckoutMessage();
+        verify(printer).printMessage("Thank you! Enjoy the movie");
     }
 }

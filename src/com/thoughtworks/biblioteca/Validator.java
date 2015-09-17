@@ -5,7 +5,6 @@ public class Validator {
     private static final String INVALID_PASSWORD = "0";
     private Login login;
     private User myUser;
-
     public Validator(Login login) {
         this.login = login;
     }
@@ -20,4 +19,7 @@ public class Validator {
         }
     }
 
+    public User myUser() {
+        return myUser;
+    }
 }

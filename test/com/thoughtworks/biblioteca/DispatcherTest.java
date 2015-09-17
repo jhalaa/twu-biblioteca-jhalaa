@@ -24,7 +24,8 @@ public class DispatcherTest {
         System.setOut(printStream);
         Scanner scanner = new Scanner(inputStream);
         ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("Harry Potter", "JK Rowling", 1993));
+        User user = new User("0", "0");
+        books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
         BookLibrary bookLibrary = new BookLibrary(books);
         ArrayList<Movies> movies = new ArrayList<Movies>();
         movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
@@ -32,7 +33,6 @@ public class DispatcherTest {
         ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
         Login login = new Login(configurationOfUsers.returnUserList(), scanner);
         Validator validator = new Validator(login);
-        User user = new User("0", "0");
         Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
         dispatcher.run();
         assertEquals(String.format("%-34s %-34s %-34d\n", "Harry Potter", "JK Rowling", 1993), outputStream.toString());
@@ -47,12 +47,12 @@ public class DispatcherTest {
         System.setOut(printStream);
         Scanner scanner = new Scanner(inputStream);
         ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("Harry Potter", "JK Rowling", 1993));
+        User user = new User("0", "0");
+        books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
         BookLibrary bookLibrary = new BookLibrary(books);
         ArrayList<Movies> movies = new ArrayList<Movies>();
         movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
         MovieLibrary movieLibrary = new MovieLibrary(movies);
-        User user = new User("0", "0");
         Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, null,user);
         dispatcher.run();
         assertEquals(String.format("%-34s %-34d %-34s %-34d\n", "Titanic", 1990, "James Cameron", 5), outputStream.toString());
@@ -67,13 +67,13 @@ public class DispatcherTest {
         System.setOut(printStream);
         Scanner scanner = new Scanner(inputStream);
         ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("Harry Potter", "JK Rowling", 1993));
+        User user = new User("0", "0");
+        books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
         BookLibrary bookLibrary = new BookLibrary(books);
         ArrayList<Movies> movies = new ArrayList<Movies>();
         movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
         movies.add(new Movies("Titanic11", 1990, "James Cameron", 5));
         MovieLibrary movieLibrary = new MovieLibrary(movies);
-        User user = new User("0", "0");
         Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, null,user);
         dispatcher.run();
         assertEquals("Thank you! Enjoy the book\n", outputStream.toString());
@@ -88,8 +88,9 @@ public class DispatcherTest {
         System.setOut(printStream);
         Scanner scanner = new Scanner(inputStream);
         ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("Harry Potter", "JK Rowling", 1993));
-        books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
+        User user = new User("0", "0");
+        books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
         BookLibrary bookLibrary = new BookLibrary(books);
         ArrayList<Movies> movies = new ArrayList<Movies>();
         movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
@@ -97,7 +98,6 @@ public class DispatcherTest {
         ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
         Login login = new Login(configurationOfUsers.returnUserList(), scanner);
         Validator validator = new Validator(login);
-        User user = new User("0", "0");
         Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator, user);
         dispatcher.run();
         assertEquals("Enter login credentials\nEnter book name\nThank you! Enjoy the book\n", outputStream.toString());
@@ -112,8 +112,9 @@ public class DispatcherTest {
         System.setOut(printStream);
         Scanner scanner = new Scanner(inputStream);
         ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("Harry Potter", "JK Rowling", 1993));
-        books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
+        User user = new User("0", "0");
+        books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
         BookLibrary bookLibrary = new BookLibrary(books);
         ArrayList<Movies> movies = new ArrayList<Movies>();
         movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
@@ -121,7 +122,6 @@ public class DispatcherTest {
         ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
         Login login = new Login(configurationOfUsers.returnUserList(), scanner);
         Validator validator = new Validator(login);
-        User user = new User("0", "0");
         Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
         dispatcher.run();
         assertEquals("Enter login credentials\nEnter book name\nThat book is not available\n", outputStream.toString());
@@ -136,20 +136,20 @@ public class DispatcherTest {
         System.setOut(printStream);
         Scanner scanner = new Scanner(inputStream);
         ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("Harry Potter", "JK Rowling", 1993));
-        books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
+        User user = new User("0", "0");
+        books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
         BookLibrary bookLibrary = new BookLibrary(books);
-        bookLibrary.checkOutBook("Harry Potter");
+        bookLibrary.checkOutBook("Harry Potter",user);
         ArrayList<Movies> movies = new ArrayList<Movies>();
         movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
         MovieLibrary movieLibrary = new MovieLibrary(movies);
         ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
         Login login = new Login(configurationOfUsers.returnUserList(), scanner);
         Validator validator = new Validator(login);
-        User user = new User("0", "0");
         Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
         dispatcher.run();
-        assertEquals("Thank you! Enjoy the book\nEnter login credentials\nenter book name\nThank you for returning the book.\n", outputStream.toString());
+        assertEquals("Thank you! Enjoy the book\nEnter login credentials\nenter book name\nThat is not a valid book to return.\n", outputStream.toString());
     }
 
     @Test
@@ -161,17 +161,17 @@ public class DispatcherTest {
         System.setOut(printStream);
         Scanner scanner = new Scanner(inputStream);
         ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("Harry Potter", "JK Rowling", 1993));
-        books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
+        User user = new User("0", "0");
+        books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
         BookLibrary bookLibrary = new BookLibrary(books);
-        bookLibrary.checkOutBook("Harry Potter");
+        bookLibrary.checkOutBook("Harry Potter",user);
         ArrayList<Movies> movies = new ArrayList<Movies>();
         movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
         MovieLibrary movieLibrary = new MovieLibrary(movies);
         ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
         Login login = new Login(configurationOfUsers.returnUserList(), scanner);
         Validator validator = new Validator(login);
-        User user = new User("0", "0");
         Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
         dispatcher.run();
         assertEquals("Thank you! Enjoy the book\nEnter login credentials\nenter book name\nThat is not a valid book to return.\n", outputStream.toString());
@@ -186,8 +186,9 @@ public class DispatcherTest {
         System.setOut(printStream);
         Scanner scanner = new Scanner(inputStream);
         ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("Harry Potter", "JK Rowling", 1993));
-        books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
+        User user = new User("0", "0");
+        books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
         BookLibrary bookLibrary = new BookLibrary(books);
         ArrayList<Movies> movies = new ArrayList<Movies>();
         movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
@@ -195,7 +196,6 @@ public class DispatcherTest {
         ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
         Login login = new Login(configurationOfUsers.returnUserList(), scanner);
         Validator validator = new Validator(login);
-        User user = new User("0", "0");
         Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
         dispatcher.run();
         assertEquals(dispatcher.getUser(), user);
@@ -210,8 +210,9 @@ public class DispatcherTest {
         System.setOut(printStream);
         Scanner scanner = new Scanner(inputStream);
         ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("Harry Potter", "JK Rowling", 1993));
-        books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
+        User user = new User("0", "0");
+        books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
         BookLibrary bookLibrary = new BookLibrary(books);
         ArrayList<Movies> movies = new ArrayList<Movies>();
         movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
@@ -219,7 +220,6 @@ public class DispatcherTest {
         ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
         Login login = new Login(configurationOfUsers.returnUserList(), scanner);
         Validator validator = new Validator(login);
-        User user = new User("0", "0");
         Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
         dispatcher.run();
         assertEquals("Invalid menu option\n", outputStream.toString());
