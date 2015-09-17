@@ -4,7 +4,7 @@ public class User {
     private static final User LIBRARIAN =new User("123-4567","jhalaa","jhalaa","jhalaachinoy@gmail.com","9535243238") ;
     private String libraryNumber;
     private String password;
-    private String name;
+    public String name;
     private String email;
     private String phoneNumber;
 

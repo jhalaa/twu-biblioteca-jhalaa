@@ -27,8 +27,9 @@ public class Login {
     }
 
     public User validateUser(User user) {
-        if(users.contains(user))
-            return user;
+        int index = users.indexOf(user);
+        if(index != -1)
+            return users.get(index);
         return new User(INVALID_LIBRARY_NUMBER, INVALID_PASSWORD,UNKNOWN_NAME,UNKNOWN_EMAIL,UNKNOWN_PHONENUMBER);
     }
 }
