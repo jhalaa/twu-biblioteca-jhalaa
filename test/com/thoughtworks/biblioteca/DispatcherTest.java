@@ -59,6 +59,27 @@ public class DispatcherTest {
     }
 
     @Test
+    public void shouldCheckoutMovieWhenOptionIsFive() {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream("5\nTitanic".getBytes());
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setIn(inputStream);
+        System.setOut(printStream);
+        Scanner scanner = new Scanner(inputStream);
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("Harry Potter", "JK Rowling", 1993));
+        BookLibrary bookLibrary = new BookLibrary(books);
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        movies.add(new Movies("Titanic11", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        User user = new User("0", "0");
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, null,user);
+        dispatcher.run();
+        assertEquals("Thank you! Enjoy the book\n", outputStream.toString());
+    }
+
+    @Test
     public void shouldSuccesfullyCheckoutBookWhenBookIsAvailableAndOptionIsThree() {
         ByteArrayInputStream inputStream = new ByteArrayInputStream("3\n123-4567\njhalaa\nHarry Potter\n".getBytes());
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
