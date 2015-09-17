@@ -178,6 +178,30 @@ public class DispatcherTest {
     }
 
     @Test
+    public void shouldLogoutWhenOptionSelectedIsSeven() {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream("7".getBytes());
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setIn(inputStream);
+        System.setOut(printStream);
+        Scanner scanner = new Scanner(inputStream);
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("Harry Potter", "JK Rowling", 1993));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007));
+        BookLibrary bookLibrary = new BookLibrary(books);
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
+        Login login = new Login(configurationOfUsers.returnUserList(), scanner);
+        Validator validator = new Validator(login);
+        User user = new User("0", "0");
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
+        dispatcher.run();
+        assertEquals(dispatcher.getUser(), user);
+    }
+
+    @Test
     public void shouldReturnMessageWhenInvalidMenuOptionIsSelected() {
         ByteArrayInputStream inputStream = new ByteArrayInputStream("10".getBytes());
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();

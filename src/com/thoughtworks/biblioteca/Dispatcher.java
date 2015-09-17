@@ -68,4 +68,8 @@ public class Dispatcher {
                 invalidMenuOption.displayMessage();
             }
     }
+
+    public User getUser() {
+        return user;
+    }
 }
