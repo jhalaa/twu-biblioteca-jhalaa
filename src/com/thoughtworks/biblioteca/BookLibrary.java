@@ -75,4 +75,10 @@ public class BookLibrary {
             returnBookMessage.displayNotAvailableMessage();
         }
     }
+
+    public void printStatus() {
+        for(Book book : checkedOutBooks) {
+            System.out.println(book.toString() + book.getUser());
+        }
+    }
 }

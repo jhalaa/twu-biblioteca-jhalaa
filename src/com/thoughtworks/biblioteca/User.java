@@ -23,4 +23,9 @@ public class User {
             return true;
         return false;
     }
+
+    @Override
+    public String toString() {
+        return libraryNumber;
+    }
 }
