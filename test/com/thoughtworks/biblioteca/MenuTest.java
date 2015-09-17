@@ -13,7 +13,7 @@ public class MenuTest {
         Printer printer = mock(Printer.class);
         Menu menu = new Menu(printer);
         menu.displayMenuOption();
-        verify(printer).printMessage("\n1:List of books\t2:Exit\t3:Checkout Books\t4:Return\t5:Checkout Movies\t6:List of movies\t7:logout");
+        verify(printer).printMessage("\n1:List of books\t2:Exit\t3:Checkout Books\t4:Return\t5:Checkout Movies\t6:List of movies\t7:logout\t8:Books status");
     }
 
 }
