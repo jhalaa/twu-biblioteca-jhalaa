@@ -107,6 +107,30 @@ public class DispatcherTest {
     }
 
     @Test
+    public void shouldSuccesfullyCheckoutBookWhenBookIsAvailableAndUserAlreadyLoggedInAndOptionIsThree() {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream("3\nHarry Potter\n".getBytes());
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setIn(inputStream);
+        System.setOut(printStream);
+        Scanner scanner = new Scanner(inputStream);
+        ArrayList<Book> books = new ArrayList<Book>();
+        User user = new User("222-2222", "got","0","0","0");
+        books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
+        BookLibrary bookLibrary = new BookLibrary(books);
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
+        Login login = new Login(configurationOfUsers.returnUserList(), scanner);
+        Validator validator = new Validator(login);
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator, user);
+        dispatcher.run();
+        assertEquals("Enter book name\nThank you! Enjoy the book\n", outputStream.toString());
+    }
+
+    @Test
     public void shouldReturnBookNotValidMessageWhenBookIsNotAvailableAndOptionIsThree() {
         ByteArrayInputStream inputStream = new ByteArrayInputStream("3\n123-4567\njhalaa\nHarry\n".getBytes());
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -128,6 +152,30 @@ public class DispatcherTest {
         Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
         dispatcher.run();
         assertEquals("Enter login credentials\nEnter book name\nThat book is not available\n", outputStream.toString());
+    }
+
+    @Test
+    public void shouldReturnBookNotValidMessageWhenBookIsNotAvailableAndUserIsLoggedInAndOptionIsThree() {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream("3\nHarry\n".getBytes());
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setIn(inputStream);
+        System.setOut(printStream);
+        Scanner scanner = new Scanner(inputStream);
+        ArrayList<Book> books = new ArrayList<Book>();
+        User user = new User("222-2222", "got","0","0","0");
+        books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007, user));
+        BookLibrary bookLibrary = new BookLibrary(books);
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
+        Login login = new Login(configurationOfUsers.returnUserList(), scanner);
+        Validator validator = new Validator(login);
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
+        dispatcher.run();
+        assertEquals("Enter book name\nThat book is not available\n", outputStream.toString());
     }
 
     @Test
@@ -156,6 +204,56 @@ public class DispatcherTest {
     }
 
     @Test
+    public void shouldReturnMessageWhenValidBookIsReturnedWhenUserIsAlreadyLoggedInAndOptionIsFour() {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream("4\nHarry Potter\n".getBytes());
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setIn(inputStream);
+        System.setOut(printStream);
+        Scanner scanner = new Scanner(inputStream);
+        ArrayList<Book> books = new ArrayList<Book>();
+        User user = new User("222-2222", "got","0","0","0");
+        books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
+        BookLibrary bookLibrary = new BookLibrary(books);
+        bookLibrary.checkOutBook("Harry Potter",user);
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
+        Login login = new Login(configurationOfUsers.returnUserList(), scanner);
+        Validator validator = new Validator(login);
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
+        dispatcher.run();
+        assertEquals("Thank you! Enjoy the book\nenter book name\nThank you for returning the book.\n", outputStream.toString());
+    }
+
+    @Test
+    public void shouldReturnMessageWhenValidBookIsReturnedWhenUserIsAlreadyLoggedInAndOptionIsFourAndBookNotAvailable() {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream("4\nHarry11 Potter\n".getBytes());
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setIn(inputStream);
+        System.setOut(printStream);
+        Scanner scanner = new Scanner(inputStream);
+        ArrayList<Book> books = new ArrayList<Book>();
+        User user = new User("222-2222", "got","0","0","0");
+        books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
+        BookLibrary bookLibrary = new BookLibrary(books);
+        bookLibrary.checkOutBook("Harry Potter",user);
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
+        Login login = new Login(configurationOfUsers.returnUserList(), scanner);
+        Validator validator = new Validator(login);
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
+        dispatcher.run();
+        assertEquals("Thank you! Enjoy the book\nenter book name\nThat is not a valid book to return.\n", outputStream.toString());
+    }
+
+    @Test
     public void shouldReturnMessageWhenInValidBookIsReturnedAndOptionIsFour() {
         ByteArrayInputStream inputStream = new ByteArrayInputStream("4\n123-4567\njhalaa\nHarry\n".getBytes());
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -179,6 +277,7 @@ public class DispatcherTest {
         dispatcher.run();
         assertEquals("Thank you! Enjoy the book\nEnter login credentials\nenter book name\nThat is not a valid book to return.\n", outputStream.toString());
     }
+
 
     @Test
     public void shouldLogoutWhenOptionSelectedIsSeven() {
@@ -249,6 +348,104 @@ public class DispatcherTest {
         Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
         dispatcher.run();
         assertEquals("Invalid menu option\n", outputStream.toString());
+    }
+
+    @Test
+    public void shouldDenyPermissionIfUserIsLoggedInAndNotALibrarianAndOptionIsEight() {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream("8".getBytes());
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setIn(inputStream);
+        System.setOut(printStream);
+        Scanner scanner = new Scanner(inputStream);
+        ArrayList<Book> books = new ArrayList<Book>();
+        User user = new User("222-2222", "got","0","0","0");
+        books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
+        BookLibrary bookLibrary = new BookLibrary(books);
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
+        Login login = new Login(configurationOfUsers.returnUserList(), scanner);
+        Validator validator = new Validator(login);
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
+        dispatcher.run();
+        assertEquals("PERMISSION DENIED\n", outputStream.toString());
+    }
+
+    @Test
+    public void shouldAllowPermissionIfUserIsLoggedInAndIsLibrarianAndOptionIsEight() {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream("3\nHarry Potter\n8".getBytes());
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setIn(inputStream);
+        System.setOut(printStream);
+        Scanner scanner = new Scanner(inputStream);
+        ArrayList<Book> books = new ArrayList<Book>();
+        User user = new User("123-4567", "jhalaa","0","0","0");
+        books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
+        BookLibrary bookLibrary = new BookLibrary(books);
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
+        Login login = new Login(configurationOfUsers.returnUserList(), scanner);
+        Validator validator = new Validator(login);
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
+        dispatcher.run();
+        dispatcher.run();
+        assertEquals("Enter book name\nThank you! Enjoy the book\nHarry Potter                       JK Rowling                         1993                              123-4567\n", outputStream.toString());
+    }
+
+    @Test
+    public void shouldAllowPermissionIfUserIsNotLoggedInAndIsLibrarianAndOptionIsEight() {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream("3\n123-4567\njhalaa\nHarry Potter\n8".getBytes());
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setIn(inputStream);
+        System.setOut(printStream);
+        Scanner scanner = new Scanner(inputStream);
+        ArrayList<Book> books = new ArrayList<Book>();
+        User user = new User("0", "0","0","0","0");
+        books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
+        BookLibrary bookLibrary = new BookLibrary(books);
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
+        Login login = new Login(configurationOfUsers.returnUserList(), scanner);
+        Validator validator = new Validator(login);
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
+        dispatcher.run();
+        dispatcher.run();
+        assertEquals("Enter login credentials\nEnter book name\nThank you! Enjoy the book\nHarry Potter                       JK Rowling                         1993                              123-4567\n", outputStream.toString());
+    }
+
+    @Test
+    public void shouldDenyPermissionIfUserIsLogsInLaterAndIsNotALibrarianAndOptionIsEight() {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream("8\n222-2222\ngot".getBytes());
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setIn(inputStream);
+        System.setOut(printStream);
+        Scanner scanner = new Scanner(inputStream);
+        ArrayList<Book> books = new ArrayList<Book>();
+        User user = new User("0", "0","0","0","0");
+        books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
+        BookLibrary bookLibrary = new BookLibrary(books);
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        ConfigurationOfUsers configurationOfUsers = new ConfigurationOfUsers();
+        Login login = new Login(configurationOfUsers.returnUserList(), scanner);
+        Validator validator = new Validator(login);
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
+        dispatcher.run();
+        assertEquals("Enter login credentials\nPERMISSION DENIED\n", outputStream.toString());
     }
 
 

@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -123,9 +124,24 @@ public class BookLibraryTest {
         BookLibrary bookLibrary1 = new BookLibrary(books);
         BookLibrary bookLibrary2 = new BookLibrary(books);
         bookLibrary2.checkOutBook("Harry Potter",user);
-        bookLibrary2.returnBook("Harry Potter",user);
+        bookLibrary2.returnBook("Harry Potter", user);
         assertEquals(bookLibrary1, bookLibrary2);
 
+    }
+
+    @Test
+    public void shouldPrintTheBookStatus() {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setOut(printStream);
+        ArrayList<Book> books = new ArrayList<Book>();
+        User user = new User("123-4567","jhalaa","0","0","0");
+        books.add(new Book("Harry Potter", "JK Rowling", 1995,user));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007, user));
+        BookLibrary bookLibrary2 = new BookLibrary(books);
+        bookLibrary2.checkOutBook("Harry Potter", user);
+        bookLibrary2.printStatus();
+        assertEquals(String.format("%s\n%-34s %-34s %-34s%s\n","Thank you! Enjoy the book","Harry Potter","JK Rowling","1995","123-4567"),outputStream.toString());
     }
 
 }

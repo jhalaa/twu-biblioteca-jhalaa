@@ -56,6 +56,12 @@ public class UserTest {
         System.setOut(printStream);
         User user1 = new User("123-4537","jhalaa","jhalaa","jhalaachinoy@gmail.com","9535243238");
         user1.getMyDetails();
-        assertEquals("jhalaa jhalaachinoy@gmail.com 9535243238\n",outputStream.toString());
+        assertEquals("jhalaa jhalaachinoy@gmail.com 9535243238\n", outputStream.toString());
+    }
+
+    @Test
+    public void shouldReturnTheLibraryNumber() {
+        User user1 = new User("123-4567","jhalaa","0","0","0");
+        assertEquals(user1.toString(),"123-4567");
     }
 }
