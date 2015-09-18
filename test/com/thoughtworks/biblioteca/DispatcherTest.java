@@ -11,9 +11,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 public class DispatcherTest {
 
@@ -189,7 +187,7 @@ public class DispatcherTest {
         ArrayList<Book> books = new ArrayList<Book>();
         User user = new User("0", "0","0","0","0");
         books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
-        books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007, user));
         BookLibrary bookLibrary = new BookLibrary(books);
         bookLibrary.checkOutBook("Harry Potter",user);
         ArrayList<Movies> movies = new ArrayList<Movies>();
@@ -448,6 +446,94 @@ public class DispatcherTest {
         assertEquals("Enter login credentials\nPERMISSION DENIED\n", outputStream.toString());
     }
 
+    @Test
+    public void shouldCallLoginIfOptionIsFour() {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream("4\n222-2222\ngot".getBytes());
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setIn(inputStream);
+        System.setOut(printStream);
+        Scanner scanner = new Scanner(inputStream);
+        ArrayList<Book> books = new ArrayList<Book>();
+        User user = new User("0", "0","0","0","0");
+        books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
+        BookLibrary bookLibrary = new BookLibrary(books);
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        Validator validator = mock(Validator.class);
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
+        dispatcher.run();
+        verify(validator , times(1)).callLogin();
+    }
+
+    @Test
+    public void shouldCallLoginIfOptionIsThree() {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream("3\n222-2222\ngot".getBytes());
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setIn(inputStream);
+        System.setOut(printStream);
+        Scanner scanner = new Scanner(inputStream);
+        ArrayList<Book> books = new ArrayList<Book>();
+        User user = new User("0", "0","0","0","0");
+        books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
+        BookLibrary bookLibrary = new BookLibrary(books);
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        Validator validator = mock(Validator.class);
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
+        dispatcher.run();
+        verify(validator , times(1)).callLogin();
+    }
+
+    @Test
+    public void shouldCallLoginIfOptionIsEight() {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream("8\n123-4567\njhalaa".getBytes());
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setIn(inputStream);
+        System.setOut(printStream);
+        Scanner scanner = new Scanner(inputStream);
+        ArrayList<Book> books = new ArrayList<Book>();
+        User user = new User("0", "0","0","0","0");
+        books.add(new Book("Harry Potter", "JK Rowling", 1993,user));
+        books.add(new Book("Da Vinci Code", "Dan Brown", 2007,user));
+        BookLibrary bookLibrary = new BookLibrary(books);
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        Validator validator = mock(Validator.class);
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
+        dispatcher.run();
+        verify(validator , times(1)).callLogin();
+    }
+
+    @Test
+    public void shouldPrintStatusIfOptionIsEight() {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream("8\n123-4567\njhalaa".getBytes());
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setIn(inputStream);
+        System.setOut(printStream);
+        Scanner scanner = new Scanner(inputStream);
+        User user = new User("0", "0","0","0","0");
+        BookLibrary bookLibrary = mock(BookLibrary.class);
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        ConfigurationOfUsers configurationOfUsers= new ConfigurationOfUsers();
+        ArrayList<User> users = configurationOfUsers.returnUserList();
+        Login login = new Login(users,scanner);
+        Validator validator = new Validator(login);
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
+        dispatcher.run();
+        verify(bookLibrary , times(1)).printStatus();
+    }
+
 
     @Rule
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
@@ -455,6 +541,22 @@ public class DispatcherTest {
     @Test
     public void shouldExitWhenOptionSelectedIsTwo() {
         exit.expectSystemExit();
+        User user = new User("0", "0","0","0","0");
+        ByteArrayInputStream inputStream = new ByteArrayInputStream("2".getBytes());
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setOut(printStream);
+        Scanner scanner = new Scanner(inputStream);
+        BookLibrary bookLibrary = mock(BookLibrary.class);
+        ArrayList<Movies> movies = new ArrayList<Movies>();
+        movies.add(new Movies("Titanic", 1990, "James Cameron", 5));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        ConfigurationOfUsers configurationOfUsers= new ConfigurationOfUsers();
+        ArrayList<User> users = configurationOfUsers.returnUserList();
+        Login login = new Login(users,scanner);
+        Validator validator = new Validator(login);
+        Dispatcher dispatcher = new Dispatcher(movieLibrary, bookLibrary, scanner, validator,user);
+        dispatcher.run();
         System.exit(0);
     }
 
