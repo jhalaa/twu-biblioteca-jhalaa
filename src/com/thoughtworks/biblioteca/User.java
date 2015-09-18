@@ -1,7 +1,7 @@
 package com.thoughtworks.biblioteca;
 
 public class User {
-    private static final User LIBRARIAN =new User("123-4567","jhalaa","jhalaa","jhalaachinoy@gmail.com","9535243238") ;
+    private static final User LIBRARIAN = new User("123-4567", "jhalaa", "jhalaa", "jhalaachinoy@gmail.com", "9535243238");
     private String libraryNumber;
     private String password;
     private String name;
@@ -18,14 +18,14 @@ public class User {
 
     @Override
     public boolean equals(Object object) {
-        User user = (User)object;
-        if(this.libraryNumber.equals(user.libraryNumber) && this.password.equals(user.password))
+        User user = (User) object;
+        if (this.libraryNumber.equals(user.libraryNumber) && this.password.equals(user.password))
             return true;
         return false;
     }
 
     public boolean isLibraian() {
-        if(this.equals(LIBRARIAN))
+        if (this.equals(LIBRARIAN))
             return true;
         return false;
     }
@@ -36,6 +36,6 @@ public class User {
     }
 
     public void getMyDetails() {
-        System.out.println(name +" "+ email+" " + phoneNumber);
+        System.out.println(name + " " + email + " " + phoneNumber);
     }
 }

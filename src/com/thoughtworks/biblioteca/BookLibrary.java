@@ -10,7 +10,7 @@ public class BookLibrary {
     private static final String UNKNOWN_AUTHOR = null;
     private static final int UNKNOWN_YEAR = 0;
     private Printer printer = new Printer(System.out);
-    private User user = new User("0","0","0","0","0");
+    private User user = new User("0", "0", "0", "0", "0");
 
     BookLibrary(ArrayList<Book> availableBooks) {
         this.availableBooks = availableBooks;
@@ -39,9 +39,9 @@ public class BookLibrary {
         return hash;
     }
 
-    public void checkOutBook(String name,User user) {
+    public void checkOutBook(String name, User user) {
         CheckoutMessage checkoutMessage;
-        Book book = new Book(name, UNKNOWN_AUTHOR, UNKNOWN_YEAR,user);
+        Book book = new Book(name, UNKNOWN_AUTHOR, UNKNOWN_YEAR, user);
         if (availableBooks.contains(book)) {
             int index = availableBooks.indexOf(book);
             availableBooks.get(index).setUser(user);
@@ -55,18 +55,17 @@ public class BookLibrary {
         }
     }
 
-    public void returnBook(String bookname,User user) {
+    public void returnBook(String bookname, User user) {
         ReturnBookMessage returnBookMessage;
-        Book book = new Book(bookname, UNKNOWN_AUTHOR, UNKNOWN_YEAR,user);
+        Book book = new Book(bookname, UNKNOWN_AUTHOR, UNKNOWN_YEAR, user);
         if (checkedOutBooks.contains(book)) {
             int index = checkedOutBooks.indexOf(book);
-            if(checkedOutBooks.get(index).getUser().equals(user)) {
+            if (checkedOutBooks.get(index).getUser().equals(user)) {
                 availableBooks.add(checkedOutBooks.get(index));
                 checkedOutBooks.remove(book);
                 returnBookMessage = new ReturnBookMessage(printer);
                 returnBookMessage.displayAvailableMessage();
-            }
-            else {
+            } else {
                 returnBookMessage = new ReturnBookMessage(printer);
                 returnBookMessage.displayNotAvailableMessage();
             }
@@ -77,7 +76,7 @@ public class BookLibrary {
     }
 
     public void printStatus() {
-        for(Book book : checkedOutBooks) {
+        for (Book book : checkedOutBooks) {
             System.out.println(book.toString() + book.getUser());
         }
     }

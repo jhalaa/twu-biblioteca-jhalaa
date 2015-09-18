@@ -6,6 +6,7 @@ import java.io.OutputStream;
 public class Printer {
 
     OutputStream outputStream;
+
     public Printer(OutputStream outputStream) {
         this.outputStream = outputStream;
     }

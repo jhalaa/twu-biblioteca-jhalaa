@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class MovieLibrary {
     private static final int UNKNOWN_YEAR = 0;
-    private static final int UNKNOWN_RATING = 0 ;
+    private static final int UNKNOWN_RATING = 0;
     private static final String UNKNOWN_DIRECTOR = null;
     private Printer printer = new Printer(System.out);
     private ArrayList<Movies> availableMovies = new ArrayList<Movies>();

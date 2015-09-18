@@ -1,8 +1,5 @@
 package com.thoughtworks.biblioteca;
 
-
-import java.awt.*;
-
 public class Book {
 
     private String bookName;
@@ -10,7 +7,7 @@ public class Book {
     private int year;
     private User myOwner;
 
-    public Book(String bookName, String author, int year ,User user) {
+    public Book(String bookName, String author, int year, User user) {
         this.bookName = bookName;
         this.author = author;
         this.year = year;
@@ -19,13 +16,13 @@ public class Book {
 
     @Override
     public String toString() {
-        return String.format("%-34s %-34s %-34d",bookName,author,year);
+        return String.format("%-34s %-34s %-34d", bookName, author, year);
     }
 
     @Override
     public boolean equals(Object object) {
-        Book book = (Book)object;
-        if(this.bookName.equals(book.bookName))
+        Book book = (Book) object;
+        if (this.bookName.equals(book.bookName))
             return true;
         return false;
     }
@@ -35,7 +32,7 @@ public class Book {
         int hash = 3;
         hash = 7 * hash + this.bookName.hashCode();
         hash = 7 * hash + this.author.hashCode();
-        return hash+year;
+        return hash + year;
     }
 
     public void setUser(User user) {

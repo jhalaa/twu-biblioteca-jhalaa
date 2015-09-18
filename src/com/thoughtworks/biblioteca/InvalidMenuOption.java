@@ -8,6 +8,7 @@ public class InvalidMenuOption {
     public InvalidMenuOption(Printer printer) {
         this.printer = printer;
     }
+
     public void displayMessage() {
         printer.printMessage(message);
     }
