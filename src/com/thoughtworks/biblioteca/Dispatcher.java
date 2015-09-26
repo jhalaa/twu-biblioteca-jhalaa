@@ -108,33 +108,45 @@ public class Dispatcher {
     private void returnBook() {
         if (user.equals(INVALID_USER)) {
             System.out.println("Enter login credentials");
-            if (validator.callLogin()) {
-                user = validator.myUser();
-                System.out.println("enter book name");
-                String bookName = scanner.nextLine();
-                bookLibrary.returnBook(bookName, user);
-            }
+            validUserReturnBook();
         } else {
-            System.out.println("enter book name");
-            String bookName = scanner.nextLine();
-            bookLibrary.returnBook(bookName, user);
+            loggedInUserReturnsBook();
+        }
+    }
+
+    private void loggedInUserReturnsBook() {
+        System.out.println("enter book name");
+        String bookName = scanner.nextLine();
+        bookLibrary.returnBook(bookName, user);
+    }
+
+    private void validUserReturnBook() {
+        if (validator.callLogin()) {
+            user = validator.myUser();
+            loggedInUserReturnsBook();
         }
     }
 
     private void checkOutBook() {
         if (user.equals(INVALID_USER)) {
             System.out.println("Enter login credentials");
-            if (validator.callLogin()) {
-                user = validator.myUser();
-                System.out.println("Enter book name");
-                String bookName = scanner.nextLine();
-                bookLibrary.checkOutBook(bookName, user);
-            }
+            validUserChecksOutBook();
         }
         else {
-            System.out.println("Enter book name");
-            String bookName = scanner.nextLine();
-            bookLibrary.checkOutBook(bookName, user);
+            LoggedInUserChecksOutBook();
+        }
+    }
+
+    private void LoggedInUserChecksOutBook() {
+        System.out.println("Enter book name");
+        String bookName = scanner.nextLine();
+        bookLibrary.checkOutBook(bookName, user);
+    }
+
+    private void validUserChecksOutBook() {
+        if (validator.callLogin()) {
+            user = validator.myUser();
+            LoggedInUserChecksOutBook();
         }
     }
 
